@@ -32,8 +32,8 @@ const Footer = () => {
   }
 
   return (
-    <footer className='py-12 md:py-16'>
-      <div className='max-w-[90%] lg:max-w-[80%] mx-auto'>
+    <footer className='py-12 px-4 md:py-16 max-w-[120rem] mx-auto'>
+      <div className='5] lg:max-w-[95%] mx-auto'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-8'>
           <div className='lg:col-span-4 flex flex-col gap-6'>
             <img src={logo} alt='Raver Logo' className='w-[107px] h-[32px]' />

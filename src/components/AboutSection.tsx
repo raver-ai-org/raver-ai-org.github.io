@@ -6,7 +6,7 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id='about'
-      className='flex flex-col py-12 sm:py-16 md:py-20 gap-10 sm:gap-12 md:gap-16 lg:gap-20 max-w-[95%] sm:max-w-[90%] lg:max-w-[80%] mx-auto'
+      className='flex flex-col py-12 sm:py-16 md:py-20 gap-10 sm:gap-12 md:gap-16 lg:gap-20 max-w-[95%] sm:max-w-[90%] lg:max-w-[95%] mx-auto'
     >
       <div className='flex flex-col justify-center items-center gap-3 md:gap-4 max-w-[880px] mx-auto'>
         <h2 className='text-center font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 leading-tight'>
@@ -52,14 +52,13 @@ const AboutSection: React.FC = () => {
           </div>
 
           <div className='w-full h-full flex items-center'>
-            <div className='w-full h-full aspect-video'>
+            <div className='w-full h-full '>
               <VideoPlayer
                 src={video}
                 borderRadius='16px sm:24px md:32px'
                 className='w-full h-full rounded-[24px] md:rounded-[32px] lg:rounded-[40px]'
                 height='100%'
                 maxWidth='100%'
-                aspectRatio='16/9'
               />
             </div>
           </div>

@@ -106,7 +106,7 @@ const TeamSection: React.FC = () => {
     <div
       id='team'
       className='flex w-full flex-col items-start bg-white rounded-[24px] sm:rounded-[32px] md:rounded-[48px] 
-                max-w-[95%] sm:max-w-[90%] lg:max-w-[80%] mx-auto mb-12 md:mb-20'
+                max-w-[95%] sm:max-w-[90%] lg:max-w-[95%] mx-auto mb-12 md:mb-20'
     >
       <div
         className='flex px-4 py-8 sm:p-8 md:p-10 lg:p-16 xl:p-20 

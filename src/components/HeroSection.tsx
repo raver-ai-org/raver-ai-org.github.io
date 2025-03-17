@@ -111,7 +111,7 @@ const HeroSection = () => {
 
           <p
             ref={descriptionRef}
-            className='text-white text-base sm:text-lg md:text-xl lg:text-[24px] mb-6 md:mb-8 max-w-[95%] sm:max-w-[90%] md:max-w-full'
+            className='text-white text-base sm:text-lg md:text-xl lg:text-[24px] mb-6 md:mb-8 max-w-[95%] sm:max-w-[95%] md:max-w-full'
           >
             At Raver, we believe that stories inspire action, evoke emotion, and
             build meaningful connections.

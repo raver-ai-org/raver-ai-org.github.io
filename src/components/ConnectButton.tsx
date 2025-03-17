@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import React, { useState } from 'react'
+import { createPortal } from 'react-dom'
 import ContactDialog from './ContactDialog'
 
 interface ConnectButtonProps {
@@ -38,7 +39,7 @@ const ConnectButton: React.FC<ConnectButtonProps> = ({
     <>
       <button
         onClick={handleClick}
-        className={`flex flex-row justify-center items-center gap-4 rounded-full font-medium cursor-pointer transition-all duration-300 hover:opacity-90 w-full md:w-auto ${bgColorClass} ${textColorClass} ${className}`}
+        className={`font-montserrat flex flex-row justify-center items-center gap-4 rounded-full font-medium cursor-pointer transition-all duration-300 hover:opacity-90 w-full md:w-auto ${bgColorClass} ${textColorClass} ${className}`}
         style={{
           width: typeof width === 'number' ? `${width}px` : width,
           maxWidth: typeof width === 'number' ? `${width}px` : width,
@@ -47,14 +48,18 @@ const ConnectButton: React.FC<ConnectButtonProps> = ({
           color: textColorStyle,
         }}
       >
-        <span className='text-base md:text-lg'>{text}</span>
+        <span className='font-montserrat text-base md:text-lg'>{text}</span>
         <ArrowRight className='w-5 h-5' />
       </button>
 
-      <ContactDialog
-        isOpen={isDialogOpen}
-        onClose={() => setIsDialogOpen(false)}
-      />
+      {isDialogOpen &&
+        createPortal(
+          <ContactDialog
+            isOpen={isDialogOpen}
+            onClose={() => setIsDialogOpen(false)}
+          />,
+          document.body
+        )}
     </>
   )
 }

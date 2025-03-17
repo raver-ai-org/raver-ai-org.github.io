@@ -26,14 +26,14 @@ const ElevateBrandSection: React.FC = () => {
   return (
     <section
       id='work'
-      className='px-4 sm:px-6 md:px-8 mb-12 sm:mb-16 md:mb-20 
-                max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] mx-auto 
+      className='mb-12 sm:mb-16 md:mb-20 
+                max-w-[95%] sm:max-w-[90%] md:max-w-[90%] lg:max-w-[95%] mx-auto 
                 py-8 sm:py-12 md:py-16 lg:py-20'
     >
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center'>
         <div className='flex flex-col justify-center items-start gap-4 sm:gap-6 md:gap-8 w-full'>
           <div className='flex flex-col items-start gap-3 sm:gap-4 w-full'>
-            <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight'>
+            <h2 className='text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight'>
               Let Raver Elevate Your Brand and Bring Your Vision to Life.
             </h2>
           </div>
@@ -48,23 +48,20 @@ const ElevateBrandSection: React.FC = () => {
           <ConnectButton
             bgColor='#262832'
             textColor='#fff'
-            width='100%'
+            width='359px'
             height='48px'
             className='max-w-[280px] md:max-w-[359px] mt-2 sm:mt-4'
           />
         </div>
 
         <div className='lg:hidden relative w-full'>
-          <div className='relative w-full pt-[56.25%] sm:pt-[75%] md:pt-[65%] rounded-[16px] sm:rounded-[24px] md:rounded-[32px] lg:rounded-[48px] overflow-hidden'>
-            <div className='absolute inset-0 w-full h-full'>
-              <VideoPlayer
-                src={videos[activeVideoIndex].src}
-                height='100%'
-                maxWidth='100%'
-                borderRadius='0'
-                className='w-full h-full'
-              />
-            </div>
+          <div className='relative w-full rounded-[16px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden'>
+            <VideoPlayer
+              src={videos[activeVideoIndex].src}
+              maxWidth='100%'
+              borderRadius='0'
+              className='w-full h-full'
+            />
           </div>
 
           <div className='flex justify-center mt-4 sm:mt-6 gap-2'>

@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div className='min-h-screen bg-[#E3D3CF]'>
         <Navbar />
-        <main className='max-w-screen-3xl mx-auto'>
+        <main className='max-w-[120rem] mx-auto '>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/terms' element={<Terms />} />

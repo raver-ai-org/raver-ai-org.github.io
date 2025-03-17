@@ -30,27 +30,34 @@ const TermsOfUsePage = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['terms', 'privacy', 'usage', 'account', 'rights']
-      const scrollPosition = window.scrollY + 150
+      const scrollPosition = window.scrollY + (isMobile ? 150 : 100)
+
+      let currentSection = sections[0]
 
       for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
-          const sectionTop = element.offsetTop
-          const sectionBottom = sectionTop + element.offsetHeight
+          const sectionTop = element.offsetTop - 50
 
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            if (activeSection !== section) {
-              setActiveSection(section)
-            }
+          if (scrollPosition >= sectionTop) {
+            currentSection = section
+          } else {
             break
           }
         }
       }
+
+      if (activeSection !== currentSection) {
+        setActiveSection(currentSection)
+      }
     }
 
     window.addEventListener('scroll', handleScroll)
+
+    handleScroll()
+
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [activeSection])
+  }, [isMobile])
 
   const navigationItems = [
     { id: 'terms', label: 'Terms' },
@@ -64,11 +71,7 @@ const TermsOfUsePage = () => {
     <div className='flex flex-col md:flex-row min-h-screen w-full pt-[100px]'>
       <nav
         className={`
-        ${
-          isMobile
-            ? 'sticky top-0 z-40 w-full'
-            : 'w-[320px] h-auto sticky top-[100px]'
-        } 
+        ${isMobile ? 'w-full' : 'w-[320px] h-auto sticky top-[100px]'} 
         flex flex-col
         items-start
         p-4 md:p-10 
@@ -99,6 +102,7 @@ const TermsOfUsePage = () => {
                 font-montserrat font-semibold text-base md:text-lg
                 whitespace-nowrap
                 transition-all duration-200
+                cursor-pointer
                 ${
                   activeSection === item.id
                     ? 'border-l-4 border-[#262832] pl-3 text-black'
@@ -112,7 +116,7 @@ const TermsOfUsePage = () => {
         </div>
       </nav>
 
-      <main className='flex-1 p-6 md:p-12 max-w-[90%] md:max-w-[80%] mx-auto bg-white rounded-[48px] mt-10 mb-10'>
+      <main className='flex-1 p-6 md:p-12 max-w-[90%] md:max-w-[90%] mx-auto bg-white rounded-[48px] mt-10 mb-10 mr-10'>
         <section id='terms' className='mb-16'>
           <h2 className='font-playfair font-bold text-2xl md:text-3xl mb-6'>
             1. Terms and Conditions

@@ -79,17 +79,8 @@ const Navbar = () => {
     }
   }
 
-  const handleContactClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    if (isHomePage) {
-      setIsDialogOpen(true)
-    } else {
-      navigate('/', { state: { openContact: true } })
-    }
-
-    if (isMenuOpen) {
-      setIsMenuOpen(false)
-    }
+  const handleContactClick = () => {
+    setIsDialogOpen(true)
   }
 
   return (
@@ -197,9 +188,9 @@ const Navbar = () => {
           </div>
 
           <div className='hidden md:block'>
-            <Link
-              to={isHomePage ? '#contact' : '/#contact'}
-              className={`bg-gray-900 text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors ${
+            <button
+              type='button'
+              className={`bg-[#262832] text-white px-6 py-3 rounded-full hover:opacity-90 transition-all duration-300 cursor-pointer ${
                 activeSection === 'contact' && isHomePage
                   ? 'ring-2 ring-offset-2 ring-gray-900'
                   : ''
@@ -207,7 +198,7 @@ const Navbar = () => {
               onClick={handleContactClick}
             >
               Connect With Us
-            </Link>
+            </button>
           </div>
 
           <div className='md:hidden'>

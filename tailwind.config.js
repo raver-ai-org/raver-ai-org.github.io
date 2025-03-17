@@ -6,6 +6,10 @@ export default {
       fontFamily: {
         playfair: ['Playfair Display', 'serif'],
         montserrat: ['Montserrat', 'sans-serif'],
+        backgroundImage: {
+          'gradient-radial':
+            'radial-gradient(38.27% 73.32% at 45.54% 51.88%, var(--tw-gradient-stops))',
+        },
       },
     },
   },
