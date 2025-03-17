@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+@import 'swiper/css';
+@import 'swiper/css/effect-fade';
+@import 'swiper/css/autoplay';
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+  font-family: 'Playfair Display', serif;
+}
+
+p,
+li,
+a,
+button,
+label {
+  font-family: 'Montserrat', sans-serif;
+}
+
+input::placeholder {
+  font-family: 'Montserrat', sans-serif;
+}
