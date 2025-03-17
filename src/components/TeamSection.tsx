@@ -72,7 +72,7 @@ const TeamSection: React.FC = () => {
       name: 'Greg Boyd',
       title: 'CEO',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum ornare elit, eu tincidunt velit scelerisque id. In porttitor pellentesque mauris, nec pretium augue. In vehicula enim nisl. Phasellus euismod sollicitudin nisl, eu ultrices velit cursus quis. Nam vitae elit eget nisi venenatis dignissim at ac libero. In sagittis sem a justo lobortis aliquet. Proin dapibus, dolor quis porta pretium, purus est placerat mauris, ut vehicula mi tellus vel augue.',
+        'Greg Boyd is a creative tech entrepreneur and visionary leader focused on helping companies enhance their brand and drive revenue through visually compelling storytelling. With a background in management and technology consulting, he has worked with top firms like KPMG, IBM, and Travelers Insurance while launching multiple startups. Greg is also passionate about mentorship and talent development, founding Mango Mentors to connect emerging tech talent with industry leaders. His mission is to blend innovation, creativity, and purpose to transform how businesses engage with their audiences.',
       imagePosition: 'left' as const,
       image: greg,
     },
