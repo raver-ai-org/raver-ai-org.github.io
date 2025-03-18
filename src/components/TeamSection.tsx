@@ -1,6 +1,8 @@
 import React from 'react'
 import carolyn from '../assets/carolyn.png'
+import fabienne from '../assets/fabienne.png'
 import greg from '../assets/greg.png'
+import zara from '../assets/zara.png'
 
 type TeamMemberProps = {
   name: string
@@ -33,7 +35,11 @@ const TeamMember: React.FC<TeamMemberProps> = ({
                      rounded-[24px] sm:rounded-[32px] md:rounded-[48px] 
                      bg-[#E3D3CF] shrink-0 overflow-hidden'
       >
-        <img src={image} alt={name} className='w-full h-full object-cover' />
+        <img
+          src={image}
+          alt={name}
+          className='w-full h-full object-cover min-h-[235px]'
+        />
       </div>
 
       <div className='flex flex-col justify-center items-start gap-2 sm:gap-3 md:gap-4 flex-1 mt-4 md:mt-0'>
@@ -80,9 +86,9 @@ const TeamSection: React.FC = () => {
       name: 'Fabienne Heymans',
       title: 'Chief Creative Director',
       description:
-        "Fabienne Heymans is a visionary Creative Director with an esteemed career in the beauty and fashion industries. As an international model and actor, she has represented iconic brands such as Maybelline, Revlon, Clinique, Ulta, Prose, Moroccanoil, and L’Oréal, collaborating with top photographers, designers, and creatives worldwide. Her expertise in aesthetics, branding, and storytelling—combined with her passion for conscious living and environmental sustainability—enables her to craft immersive experiences that seamlessly merge art, technology, and purpose. As Creative Director at Raver, Fabienne leads the artistic vision, ensuring the development of high-impact advertising content that leverages AI-powered tools. Through visually striking imagery, compelling narratives, and emotionally resonant storytelling, she creates content that not only captures attention but also inspires, moves, and deeply connects with audiences.",
+        'Fabienne Heymans is a visionary Creative Director with an esteemed career in the beauty and fashion industries. As an international model and actor, she has represented iconic brands such as Maybelline, Revlon, Clinique, Ulta, Prose, Moroccanoil, and L’Oréal, collaborating with top photographers, designers, and creatives worldwide. Her expertise in aesthetics, branding, and storytelling—combined with her passion for conscious living and environmental sustainability—enables her to craft immersive experiences that seamlessly merge art, technology, and purpose. As Creative Director at Raver, Fabienne leads the artistic vision, ensuring the development of high-impact advertising content that leverages AI-powered tools. Through visually striking imagery, compelling narratives, and emotionally resonant storytelling, she creates content that not only captures attention but also inspires, moves, and deeply connects with audiences.',
       imagePosition: 'right' as const,
-      image: carolyn,
+      image: fabienne,
     },
     {
       name: 'Carolyn Neff',
@@ -98,7 +104,7 @@ const TeamSection: React.FC = () => {
       description:
         "I'm a content creator and AI artist with a deep passion for digital innovation. Being part of the Raver community inspires me to blend technology and creativity, crafting immersive visuals that reflect its energy and spirit. I love playing with colors, light, and dynamic compositions to create eye-catching visuals that stand out, pushing creative boundaries to bring bold, futuristic ideas to life.",
       imagePosition: 'right' as const,
-      image: carolyn,
+      image: zara,
     },
   ]
 
