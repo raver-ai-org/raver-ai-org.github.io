@@ -111,7 +111,7 @@ const TeamSection: React.FC = () => {
   return (
     <div
       id='team'
-      className='flex w-full flex-col items-start bg-white rounded-[24px] sm:rounded-[32px] md:rounded-[48px] 
+      className='flex w-full flex-col items-start bg-[#F4EDEC] rounded-[24px] sm:rounded-[32px] md:rounded-[48px] 
                 max-w-[95%] sm:max-w-[90%] lg:max-w-[95%] mx-auto mb-12 md:mb-20'
     >
       <div

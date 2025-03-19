@@ -67,7 +67,7 @@ const HeroSection = () => {
         effect='fade'
         fadeEffect={{ crossFade: true }}
         autoplay={{
-          delay: 2000,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         speed={1000}
@@ -93,7 +93,7 @@ const HeroSection = () => {
         <div className='max-w-xl pt-16 md:pt-0'>
           <h1
             ref={titleRef}
-            className='font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[72px] leading-tight mb-4'
+            className='font-bold text-[#F5F4F5] text-3xl sm:text-4xl md:text-5xl lg:text-[72px] leading-tight mb-4'
           >
             <span className='md:hidden'>
               BRINGING HEART TO AI-POWERED STORYTELLING

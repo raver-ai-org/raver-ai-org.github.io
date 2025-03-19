@@ -118,7 +118,7 @@ const ElevateBrandSection: React.FC = () => {
 
           <VideoPlayer
             src={video}
-            height='597px'
+            height='602px'
             maxWidth='336px'
             borderRadius='24px md:32px lg:48px'
             className='w-full md:max-w-[336px] rounded-[24px]'

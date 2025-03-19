@@ -34,7 +34,7 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            <div className='p-5 sm:p-6 md:p-8 h-full rounded-[24px] md:rounded-[32px] lg:rounded-[40px] flex flex-col justify-between bg-white'>
+            <div className='p-5 sm:p-6 md:p-8 h-full rounded-[24px] md:rounded-[32px] lg:rounded-[40px] flex flex-col justify-between bg-[#F4EDEC]'>
               <div className='flex flex-col gap-4 sm:gap-6 md:gap-8'>
                 <h3 className='font-playfair text-xl sm:text-2xl 2xl:text-3xl font-bold text-black leading-snug'>
                   Saving time and resources while maximizing results.
