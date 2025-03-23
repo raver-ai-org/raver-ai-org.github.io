@@ -108,7 +108,7 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className='hidden md:flex items-center justify-center space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-10'>
+            <div className='hidden md:flex items-center justify-center space-x-4 md:space-x-2 lg:space-x-8 xl:space-x-10'>
               <Link
                 to={isHomePage ? '#home' : '/#home'}
                 className={`uppercase font-normal text-base xl:text-lg transition-all whitespace-nowrap ${
@@ -139,7 +139,7 @@ const Navbar = () => {
                   }
                 }}
               >
-                About
+                About Us
               </Link>
               <Link
                 to={isHomePage ? '#work' : '/#work'}
@@ -155,7 +155,7 @@ const Navbar = () => {
                   }
                 }}
               >
-                Work
+                Our Work
               </Link>
               <Link
                 to={isHomePage ? '#team' : '/#team'}
@@ -171,7 +171,7 @@ const Navbar = () => {
                   }
                 }}
               >
-                Team
+                Meet Our Team
               </Link>
             </div>
             <div className='flex gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8'>

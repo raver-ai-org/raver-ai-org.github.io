@@ -13,6 +13,7 @@ interface VideoPlayerProps {
   borderRadius?: string | number
   className?: string
   aspectRatio?: string
+  showOverlay?: boolean
 }
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({
@@ -24,6 +25,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   borderRadius = '32px',
   className = '',
   aspectRatio,
+  showOverlay = false,
 }) => {
   const playerRef = useRef<ReactPlayer>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -181,6 +183,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
       ref={containerRef}
       onMouseMove={handleMouseMove}
     >
+      {!isExpanded && showOverlay && (
+        <div className='absolute inset-0 bg-[#00000099] bg-opacity-60 z-[5]'></div>
+      )}
       <div
         className={`absolute inset-0 ${isExpanded ? 'w-full h-full' : ''}`}
         style={{

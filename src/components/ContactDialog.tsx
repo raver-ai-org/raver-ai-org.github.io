@@ -1,6 +1,5 @@
-import { X } from 'lucide-react'
+import { Check, X } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-
 interface ContactDialogProps {
   isOpen: boolean
   onClose: () => void
@@ -39,6 +38,7 @@ const ContactDialog: React.FC<ContactDialogProps> = ({ isOpen, onClose }) => {
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, agreedToTerms: e.target.checked }))
+    console.log('Checkbox changed:', e.target.checked) // Debug log
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -245,9 +245,9 @@ const ContactDialog: React.FC<ContactDialogProps> = ({ isOpen, onClose }) => {
                         : 'transparent',
                     }}
                   />
-                  {formData.agreedToTerms && (
-                    <div className='absolute h-2 w-2 top-1 left-1 right-1 bottom-1 flex items-center justify-center'>
-                      <div className='w-3 h-2 border-r-2 border-b-2 border-[#F5F4F5] transform rotate-45 translate-y-[-2px]'></div>
+                  {formData.agreedToTerms === true && (
+                    <div className='absolute inset-0 top-[-6px] flex items-center justify-center pointer-events-none'>
+                      <Check size={16} color='#F5F4F5' />
                     </div>
                   )}
                 </div>

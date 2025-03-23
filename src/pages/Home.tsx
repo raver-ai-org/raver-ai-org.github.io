@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import showcaseVideo from '../assets/journey-of-ads.webm'
+import showcaseVideo from '../assets/zara.webm'
 import AboutUsSection from '../components/AboutUsSection'
 import AdvertisingSection from '../components/AdvertisingSection'
 import ElevateBrandSection from '../components/ElevateBrandSection'
@@ -65,12 +65,13 @@ export default function Home() {
       <HeroSection />
       <AdvertisingSection />
       <AboutUsSection />
+
+      <ElevateBrandSection />
       <FullWidthVideoSection
         videoSrc={showcaseVideo}
         id='video'
         // Add a poster image
       />
-      <ElevateBrandSection />
       <TeamSection />
     </div>
   )

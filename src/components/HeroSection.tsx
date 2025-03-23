@@ -103,7 +103,7 @@ const HeroSection = () => {
 
         {/* Left overlay for mobile and tablet - modified to go from bottom left to top right */}
         <div
-          className='absolute top-0 bottom-0 left-0 w-full md:w-1/2 2xl:hidden'
+          className='absolute top-0 bottom-0 left-0 w-full md:w-1/1 2xl:hidden'
           style={{
             background:
               'linear-gradient(225deg, rgba(26, 28, 37, 0.00) 43.94%, rgba(26, 28, 37, 0.70) 73.64%, #1A1C25 100%)',
@@ -113,7 +113,7 @@ const HeroSection = () => {
 
         {/* Left overlay for larger screens (up to 2xl) */}
         <div
-          className='absolute top-0 bottom-0 left-0 w-1/2 hidden md:block 2xl:hidden'
+          className='absolute top-0 bottom-0 left-0 w-1/1 hidden md:block 2xl:hidden'
           style={{
             background:
               'linear-gradient(135deg, #1A1C25 0%, rgba(26, 28, 37, 0.70) 29.99%, rgba(26, 28, 37, 0.00) 50%)',

@@ -41,6 +41,7 @@ const AboutUsSection = () => {
         <div className='flex flex-col w-full md:w-2/5 lg:w-[360px] gap-4'>
           <div className='relative w-full aspect-[9/16] sm:aspect-auto sm:h-[480px] md:h-[520px] lg:h-[640px] rounded-[3px] overflow-hidden'>
             <VideoPlayer
+              showOverlay
               src={videos[currentVideoIndex].src}
               maxWidth='100%'
               height='100%'
@@ -66,17 +67,17 @@ const AboutUsSection = () => {
               <div className='flex items-center gap-3 sm:gap-4'>
                 <button
                   onClick={goToPrevVideo}
-                  className='w-10 sm:w-12 h-8 sm:h-10 border border-[#8e6f77] rounded flex items-center justify-center'
+                  className='w-10 h-10 border border-[#8e6f77] rounded-[4px] flex items-center justify-center text-[#8e6f77]'
                   aria-label='Previous video'
                 >
-                  <ArrowLeft size={16} />
+                  <ArrowLeft size={24} />
                 </button>
                 <button
                   onClick={goToNextVideo}
-                  className='w-10 sm:w-12 h-8 sm:h-10 border border-[#8e6f77] rounded flex items-center justify-center'
+                  className='w-10 h-10 border border-[#8e6f77] rounded-[4px] flex items-center justify-center text-[#8e6f77]'
                   aria-label='Next video'
                 >
-                  <ArrowRight size={16} />
+                  <ArrowRight size={24} />
                 </button>
               </div>
             </div>
