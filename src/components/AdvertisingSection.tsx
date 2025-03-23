@@ -57,8 +57,7 @@ const AdvertisingSection = () => {
             </div>
 
             <div className='w-full h-full rounded-[3px] flex justify-center items-center'>
-              {/* Responsive wrapper that respects container width */}
-              <div className='w-full max-w-[640px] h-full flex justify-center items-center'>
+              <div className='w-full max-w-[640px] h-full flex justify-center flex-col'>
                 <VideoPlayer
                   showOverlay
                   src={adVideo}
@@ -68,6 +67,10 @@ const AdvertisingSection = () => {
                   className='h-full w-full'
                   aspectRatio='16/9'
                 />
+
+                <div className='mt-4 text-[#8E6F77] font-poppins text-base font-normal leading-8'>
+                  The journey of advertising through the lens of Raver.
+                </div>
               </div>
             </div>
           </div>

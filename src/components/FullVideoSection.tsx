@@ -19,6 +19,7 @@ const FullWidthVideoSection: React.FC<FullWidthVideoSectionProps> = ({
     >
       <div className='w-full h-full max-w-[94.5rem] mx-auto relative'>
         <VideoPlayer
+          showOverlay
           src={videoSrc}
           poster={posterImage}
           maxWidth='100%'
