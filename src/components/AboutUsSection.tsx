@@ -1,6 +1,8 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
+import candyGirl from '../assets/candy-girl.webm'
 import slayyy from '../assets/slayyy.webm'
+import whoOwnsUs from '../assets/who-owns-us.webm'
 import VideoPlayer from './VideoPlayer'
 
 const AboutUsSection = () => {
@@ -13,14 +15,14 @@ const AboutUsSection = () => {
         'Created for Slayyy, this video showcases the beauty of transformation with luxurious hair extensions and high-fashion aesthetics.',
     },
     {
-      src: slayyy,
+      src: candyGirl,
       caption:
-        'Highlighting the versatility and elegance of premium hair extensions for the modern fashion enthusiast.',
+        'Candy girl’ (Cosmetic campaign) is a sleek, modern cosmetic video redefining beauty with innovation and style',
     },
     {
-      src: slayyy,
+      src: whoOwnsUs,
       caption:
-        "Demonstrating the artistry behind Slayyy's signature styling techniques and transformative beauty solutions.",
+        'Created for Rainfall, ‘Who Owns Us’ visually embodies the organization’s mission, merging high-tech innovation with powerful storytelling.',
     },
   ]
 
