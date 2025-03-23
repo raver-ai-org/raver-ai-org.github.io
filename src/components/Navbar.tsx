@@ -2,13 +2,11 @@ import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import ContactDialog from './ContactDialog'
+import ConnectWithUs from './ConnectWithUs'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
-  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -17,12 +15,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
-
       if (isHomePage) {
         const sections = ['home', 'about', 'work', 'team', 'contact']
         const scrollPosition = window.scrollY + 100
@@ -59,6 +51,19 @@ const Navbar = () => {
     }
   }, [location.hash, isHomePage])
 
+  // Prevent body scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isMenuOpen])
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -79,235 +84,205 @@ const Navbar = () => {
     }
   }
 
-  const handleContactClick = () => {
-    setIsDialogOpen(true)
-  }
-
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-6 lg:px-8 max-w-screen-2xl mx-auto transition-all duration-300 ${
-          isScrolled ? 'py-2' : 'py-4'
-        }`}
-      >
-        <div
-          className={`flex flex-row justify-between items-center p-4 gap-2 lg:gap-12 rounded-full h-14 md:h-20 transition-all ${
-            isScrolled
-              ? 'bg-white/90 backdrop-blur-md shadow-md'
-              : 'bg-white/60 backdrop-blur-sm'
-          }`}
-        >
-          <Link
-            to='/'
-            className='flex items-center'
-            onClick={(e) => {
-              if (isHomePage) {
-                e.preventDefault()
-                scrollToSection('home')
-              }
-            }}
-          >
-            <img src={logo} alt='Raver Logo' className='h-8 md:h-10' />
-          </Link>
+      <nav className='fixed top-0 left-0 right-0 z-50 w-full bg-white shadow-sm'>
+        <div className='max-w-screen-2xl mx-auto px-4 md:px-16'>
+          <div className='flex items-center justify-between h-20'>
+            <div className='flex-shrink-0'>
+              <Link
+                to='/'
+                className='flex items-center'
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault()
+                    scrollToSection('home')
+                  }
+                }}
+              >
+                <img src={logo} alt='Raver Logo' className='h-10' />
+              </Link>
+            </div>
 
-          <div className='hidden md:flex items-center justify-center flex-grow'>
-            <ul className='flex space-x-8 lg:space-x-12'>
-              <li className='mr-2 lg:mr-8'>
-                <Link
-                  to={isHomePage ? '#home' : '/#home'}
-                  className={`text-black font-medium transition-all duration-300 border-b-2 ${
-                    activeSection === 'home' && isHomePage
-                      ? 'border-black pb-1'
-                      : 'border-transparent hover:border-gray-300 hover:pb-1'
-                  }`}
-                  onClick={(e) => {
-                    if (isHomePage) {
-                      e.preventDefault()
-                      scrollToSection('home')
-                    }
-                  }}
+            <div className='hidden md:flex items-center justify-center space-x-10'>
+              <Link
+                to={isHomePage ? '#home' : '/#home'}
+                className={`uppercase font-normal text-lg transition-all ${
+                  activeSection === 'home' && isHomePage
+                    ? 'border-b border-[#272A34] text-[#272A34] pb-2'
+                    : 'text-[#C3969A] pb-2 border-b border-transparent'
+                }`}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault()
+                    scrollToSection('home')
+                  }
+                }}
+              >
+                Home
+              </Link>
+              <Link
+                to={isHomePage ? '#about' : '/#about'}
+                className={`uppercase font-normal text-lg transition-all ${
+                  activeSection === 'about' && isHomePage
+                    ? 'border-b border-[#272A34] text-[#272A34] pb-2'
+                    : 'text-[#C3969A] pb-2 border-b border-transparent'
+                }`}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault()
+                    scrollToSection('about')
+                  }
+                }}
+              >
+                About Us
+              </Link>
+              <Link
+                to={isHomePage ? '#work' : '/#work'}
+                className={`uppercase font-normal text-lg transition-all ${
+                  activeSection === 'work' && isHomePage
+                    ? 'border-b border-[#272A34] text-[#272A34] pb-2'
+                    : 'text-[#C3969A] pb-2 border-b border-transparent'
+                }`}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault()
+                    scrollToSection('work')
+                  }
+                }}
+              >
+                Our Work
+              </Link>
+              <Link
+                to={isHomePage ? '#team' : '/#team'}
+                className={`uppercase font-normal text-lg transition-all ${
+                  activeSection === 'team' && isHomePage
+                    ? 'border-b border-[#272A34] text-[#272A34] pb-2'
+                    : 'text-[#C3969A] pb-2 border-b border-transparent'
+                }`}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault()
+                    scrollToSection('team')
+                  }
+                }}
+              >
+                Meet Our Team
+              </Link>
+            </div>
+            <div className='flex gap-8'>
+              <div className='md:hidden flex items-center justify-center'>
+                <button
+                  onClick={toggleMenu}
+                  className='text-gray-700 focus:outline-none'
+                  aria-label='Toggle menu'
                 >
-                  Home
-                </Link>
-              </li>
-              <li className='mr-2 lg:mr-8'>
-                <Link
-                  to={isHomePage ? '#about' : '/#about'}
-                  className={`text-sm md:tex-basetext-black font-medium transition-all duration-300 border-b-2 ${
-                    activeSection === 'about' && isHomePage
-                      ? 'border-black pb-1'
-                      : 'border-transparent hover:border-gray-300 hover:pb-1'
-                  }`}
-                  onClick={(e) => {
-                    if (isHomePage) {
-                      e.preventDefault()
-                      scrollToSection('about')
-                    }
-                  }}
-                >
-                  About Us
-                </Link>
-              </li>
-              <li className='mr-2 lg:mr-8'>
-                <Link
-                  to={isHomePage ? '#work' : '/#work'}
-                  className={`text-black font-medium transition-all duration-300 border-b-2 ${
-                    activeSection === 'work' && isHomePage
-                      ? 'border-black pb-1'
-                      : 'border-transparent hover:border-gray-300 hover:pb-1'
-                  }`}
-                  onClick={(e) => {
-                    if (isHomePage) {
-                      e.preventDefault()
-                      scrollToSection('work')
-                    }
-                  }}
-                >
-                  Our Work
-                </Link>
-              </li>
-              <li className='mr-2 lg:mr-8'>
-                <Link
-                  to={isHomePage ? '#team' : '/#team'}
-                  className={`text-black font-medium transition-all duration-300 border-b-2 ${
-                    activeSection === 'team' && isHomePage
-                      ? 'border-black pb-1'
-                      : 'border-transparent hover:border-gray-300 hover:pb-1'
-                  }`}
-                  onClick={(e) => {
-                    if (isHomePage) {
-                      e.preventDefault()
-                      scrollToSection('team')
-                    }
-                  }}
-                >
-                  Meet Our Team
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className='hidden md:block'>
-            <button
-              type='button'
-              className={`bg-[#262832] text-white px-6 py-3 rounded-full hover:opacity-90 transition-all duration-300 cursor-pointer ${
-                activeSection === 'contact' && isHomePage
-                  ? 'ring-2 ring-offset-2 ring-gray-900'
-                  : ''
-              }`}
-              onClick={handleContactClick}
-            >
-              Connect With Us
-            </button>
-          </div>
-
-          <div className='md:hidden'>
-            <button
-              onClick={toggleMenu}
-              className='text-gray-700 focus:outline-none'
-              aria-label='Toggle menu'
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+              </div>
+              <ConnectWithUs variant='accent' iconOnlyMobile />
+            </div>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className='md:hidden bg-white/95 backdrop-blur-sm rounded-xl mt-2 p-4 shadow-lg absolute left-4 right-4 z-30'>
-            <ul className='flex flex-col space-y-4'>
-              <li>
+          <div className='fixed inset-0 md:hidden bg-white z-50 flex flex-col'>
+            <div className='flex justify-between items-center p-4 border-b border-gray-200 h-20'>
+              <div className='flex-shrink-0'>
                 <Link
-                  to={isHomePage ? '#home' : '/#home'}
-                  className={`text-black font-medium block py-2 border-l-4 pl-2 transition-colors ${
-                    activeSection === 'home' && isHomePage
-                      ? 'border-gray-900 bg-gray-50'
-                      : 'border-transparent'
-                  }`}
+                  to='/'
+                  className='flex items-center'
                   onClick={(e) => {
                     if (isHomePage) {
                       e.preventDefault()
-                      scrollToSection('home', true)
+                      scrollToSection('home')
+                      setIsMenuOpen(false)
                     }
                   }}
                 >
-                  Home
+                  <img src={logo} alt='Raver Logo' className='h-10' />
                 </Link>
-              </li>
-              <li>
-                <Link
-                  to={isHomePage ? '#about' : '/#about'}
-                  className={`text-black font-medium block py-2 border-l-4 pl-2 transition-colors ${
-                    activeSection === 'about' && isHomePage
-                      ? 'border-gray-900 bg-gray-50'
-                      : 'border-transparent'
-                  }`}
-                  onClick={(e) => {
-                    if (isHomePage) {
-                      e.preventDefault()
-                      scrollToSection('about', true)
-                    }
-                  }}
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={isHomePage ? '#work' : '/#work'}
-                  className={`text-black font-medium block py-2 border-l-4 pl-2 transition-colors ${
-                    activeSection === 'work' && isHomePage
-                      ? 'border-gray-900 bg-gray-50'
-                      : 'border-transparent'
-                  }`}
-                  onClick={(e) => {
-                    if (isHomePage) {
-                      e.preventDefault()
-                      scrollToSection('work', true)
-                    }
-                  }}
-                >
-                  Our Work
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={isHomePage ? '#team' : '/#team'}
-                  className={`text-black font-medium block py-2 border-l-4 pl-2 transition-colors ${
-                    activeSection === 'team' && isHomePage
-                      ? 'border-gray-900 bg-gray-50'
-                      : 'border-transparent'
-                  }`}
-                  onClick={(e) => {
-                    if (isHomePage) {
-                      e.preventDefault()
-                      scrollToSection('team', true)
-                    }
-                  }}
-                >
-                  Meet Our Team
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={isHomePage ? '#contact' : '/#contact'}
-                  className={`bg-gray-900 text-white py-3 px-6 rounded-full block text-center ${
-                    activeSection === 'contact' && isHomePage
-                      ? 'ring-2 ring-offset-2 ring-gray-900'
-                      : ''
-                  }`}
-                  onClick={handleContactClick}
-                >
-                  Connect With Us
-                </Link>
-              </li>
-            </ul>
+              </div>
+              <button
+                onClick={toggleMenu}
+                className='text-gray-700 focus:outline-none'
+                aria-label='Close menu'
+              >
+                <X size={24} />
+              </button>
+            </div>
+            <div className='flex flex-col justify-center flex-grow px-6 py-8 space-y-8'>
+              <Link
+                to={isHomePage ? '#home' : '/#home'}
+                className={`text-center py-3 text-xl uppercase ${
+                  activeSection === 'home' && isHomePage
+                    ? 'text-[#272A34] font-medium'
+                    : 'text-[#C3969A]'
+                }`}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault()
+                    scrollToSection('home', true)
+                  }
+                }}
+              >
+                Home
+              </Link>
+              <Link
+                to={isHomePage ? '#about' : '/#about'}
+                className={`text-center py-3 text-xl uppercase ${
+                  activeSection === 'about' && isHomePage
+                    ? 'text-[#272A34] font-medium'
+                    : 'text-[#C3969A]'
+                }`}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault()
+                    scrollToSection('about', true)
+                  }
+                }}
+              >
+                About Us
+              </Link>
+              <Link
+                to={isHomePage ? '#work' : '/#work'}
+                className={`text-center py-3 text-xl uppercase ${
+                  activeSection === 'work' && isHomePage
+                    ? 'text-[#272A34] font-medium'
+                    : 'text-[#C3969A]'
+                }`}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault()
+                    scrollToSection('work', true)
+                  }
+                }}
+              >
+                Our Work
+              </Link>
+              <Link
+                to={isHomePage ? '#team' : '/#team'}
+                className={`text-center py-3 text-xl uppercase ${
+                  activeSection === 'team' && isHomePage
+                    ? 'text-[#272A34] font-medium'
+                    : 'text-[#C3969A]'
+                }`}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault()
+                    scrollToSection('team', true)
+                  }
+                }}
+              >
+                Meet Our Team
+              </Link>
+            </div>
+            <div className='p-6 flex justify-center'>
+              <ConnectWithUs variant='accent' />
+            </div>
           </div>
         )}
       </nav>
-      <ContactDialog
-        isOpen={isDialogOpen}
-        onClose={() => setIsDialogOpen(false)}
-      />
     </>
   )
 }

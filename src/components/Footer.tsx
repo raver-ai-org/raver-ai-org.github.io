@@ -1,7 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import ConnectButton from './ConnectButton'
+import ConnectWithUs from './ConnectWithUs'
 
 const Footer = () => {
   const location = useLocation()
@@ -20,182 +20,159 @@ const Footer = () => {
     }
   }
 
-  const handleContactClick = () => {
-    if (isHomePage) {
-      const element = document.getElementById('contact')
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
-    } else {
-      navigate('/', { state: { openContact: true } })
-    }
-  }
-
   return (
-    <footer className='py-12 px-4 md:py-16 max-w-[120rem] mx-auto'>
-      <div className='5] lg:max-w-[95%] mx-auto'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-8'>
-          <div className='lg:col-span-4 flex flex-col gap-6'>
-            <img src={logo} alt='Raver Logo' className='w-[107px] h-[32px]' />
+    <footer className='bg-[#272a34] py-16 px-4 md:px-16'>
+      <div className='flex flex-col max-w-[94.5rem] mx-auto space-y-8'>
+        <div className='flex flex-col space-y-10'>
+          <div className='flex flex-col md:flex-row md:space-x-[180px] space-y-8 md:space-y-0'>
+            <div className='flex flex-col pt-[10px] space-y-6 max-w-[448px]'>
+              <div className='flex flex-col space-y-4'>
+                <h2 className='text-[#c3969a] font-cormorant font-bold text-[32px] leading-[39px]'>
+                  Tell Your Story, Grow Your Brand.
+                </h2>
+                <div className='h-[1px] w-full bg-[#8e6f77]'></div>
+                <p className='text-[#8e6f77] font-poppins font-light text-base leading-6'>
+                  Let's craft high-impact campaigns, engage your audience and
+                  boost your growth and success!
+                </p>
+              </div>
 
-            <div className='space-y-4'>
-              <h3 className='font-serif text-2xl md:text-[32px] font-bold leading-tight'>
-                Tell Your Story, Grow Your Brand.
-              </h3>
-
-              <p className='text-base md:text-[18px] font-medium leading-6 text-gray-700'>
-                Let's craft high-impact campaigns, engage your audience and
-                boost your growth and success!
-              </p>
+              <ConnectWithUs variant='outline' className='md:max-w-[204px]' />
             </div>
-
-            <ConnectButton
-              text='Connect With Us'
-              bgColor='#262832'
-              textColor='#fff'
-              height='48px'
-              width='100%'
-              className='max-w-[220px] mt-2'
-              onClick={handleContactClick}
-            />
-          </div>
-
-          <div className='lg:col-span-2 flex flex-col gap-5'>
-            <h4 className='text-montserrat font-semibold text-lg'>
-              Navigation
-            </h4>
-            <Link
-              to={isHomePage ? '#home' : '/#home'}
-              onClick={(e) => {
-                e.preventDefault()
-                scrollToSection('home')
-              }}
-              className='text-base font-medium hover:underline transition-all'
-            >
-              Home
-            </Link>
-            <Link
-              to={isHomePage ? '#about' : '/#about'}
-              onClick={(e) => {
-                e.preventDefault()
-                scrollToSection('about')
-              }}
-              className='text-base font-medium hover:underline transition-all'
-            >
-              About Us
-            </Link>
-            <Link
-              to={isHomePage ? '#work' : '/#work'}
-              onClick={(e) => {
-                e.preventDefault()
-                scrollToSection('work')
-              }}
-              className='text-base font-medium hover:underline transition-all'
-            >
-              Our Work
-            </Link>
-            <Link
-              to={isHomePage ? '#team' : '/#team'}
-              onClick={(e) => {
-                e.preventDefault()
-                scrollToSection('team')
-              }}
-              className='text-base font-medium hover:underline transition-all'
-            >
-              Meet Our Team
-            </Link>
-          </div>
-
-          <div className='lg:col-span-2 flex flex-col gap-5'>
-            <h4 className='text-montserrat font-semibold text-lg'>Legal</h4>
-            <Link
-              to='/terms'
-              className='flex items-center gap-2 text-base md:text-lg group'
-            >
-              <span className='group-hover:underline transition-all'>
-                Terms of Service
-              </span>
-              <ArrowUpRight
-                size={16}
-                className='group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform'
-              />
-            </Link>
-            <Link
-              to='/privacy'
-              className='flex items-center gap-2 text-base md:text-lg group'
-            >
-              <span className='group-hover:underline transition-all'>
-                Privacy Policy
-              </span>
-              <ArrowUpRight
-                size={16}
-                className='group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform'
-              />
-            </Link>
-          </div>
-
-          <div className='lg:col-span-2 flex flex-col gap-5'>
-            <h4 className='text-montserrat font-semibold text-lg'>Follow Us</h4>
-            <a
-              href='https://instagram.com'
-              className='flex items-center gap-2 text-base md:text-lg group'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <span className='group-hover:underline transition-all'>
-                Instagram
-              </span>
-              <ArrowUpRight
-                size={16}
-                className='group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform'
-              />
-            </a>
-            <a
-              href='https://youtube.com'
-              className='flex items-center gap-2 text-base md:text-lg group'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <span className='group-hover:underline transition-all'>
-                YouTube
-              </span>
-              <ArrowUpRight
-                size={16}
-                className='group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform'
-              />
-            </a>
-            <a
-              href='https://tiktok.com'
-              className='flex items-center gap-2 text-base md:text-lg group'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <span className='group-hover:underline transition-all'>
-                TikTok
-              </span>
-              <ArrowUpRight
-                size={16}
-                className='group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform'
-              />
-            </a>
-          </div>
-
-          <div className='lg:col-span-2 flex flex-col gap-5'>
-            <h4 className='text-montserrat font-semibold text-lg'>
-              Contact Us
-            </h4>
-            <a
-              href='mailto:info@raver.com'
-              className='text-base hover:underline transition-all'
-            >
-              info@raver.com
-            </a>
+            <div className='flex flex-col justify-center w-[154px]'>
+              <div className='flex items-center justify-center p-2 h-[48px]'>
+                <button
+                  onClick={() => scrollToSection('home')}
+                  className='text-[#c3969a] font-poppins text-lg leading-[27px] hover:text-[#e2b1b6] transition-colors duration-300'
+                >
+                  Home
+                </button>
+              </div>
+              <div className='flex items-center justify-center p-2 h-[48px]'>
+                <button
+                  onClick={() => scrollToSection('about')}
+                  className='text-[#c3969a] font-poppins text-lg leading-[27px] hover:text-[#e2b1b6] transition-colors duration-300'
+                >
+                  About Us
+                </button>
+              </div>
+              <div className='flex items-center justify-center p-2 h-[48px]'>
+                <button
+                  onClick={() => scrollToSection('work')}
+                  className='text-[#c3969a] font-poppins text-lg leading-[27px] hover:text-[#e2b1b6] transition-colors duration-300'
+                >
+                  Our Work
+                </button>
+              </div>
+              <div className='flex items-center justify-center p-2 h-[48px]'>
+                <button
+                  onClick={() => scrollToSection('team')}
+                  className='text-[#c3969a] font-poppins text-lg leading-[27px] hover:text-[#e2b1b6] transition-colors duration-300'
+                >
+                  Meet Our Team
+                </button>
+              </div>
+            </div>
+            <div className='flex flex-col justify-center w-[137px]'>
+              <div className='flex items-center justify-center p-2 h-[48px]'>
+                <h3 className='text-[#c3969a] font-poppins text-lg leading-[27px]'>
+                  Follow Us
+                </h3>
+              </div>
+              <div className='flex items-center justify-center px-2 h-[40px]'>
+                <a
+                  href='https://instagram.com'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-2 text-[#8e6f77] font-poppins font-light text-lg leading-[27px] group'
+                >
+                  <span className='group-hover:text-[#c3969a] group-hover:underline transition-all duration-300'>
+                    Instagram
+                  </span>
+                  <ArrowUpRight
+                    size={20}
+                    className='text-[#8e6f77] group-hover:text-[#c3969a] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300'
+                  />
+                </a>
+              </div>
+              <div className='flex items-center justify-center px-2 h-[40px]'>
+                <a
+                  href='https://youtube.com'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-2 text-[#8e6f77] font-poppins font-light text-lg leading-[27px] group'
+                >
+                  <span className='group-hover:text-[#c3969a] group-hover:underline transition-all duration-300'>
+                    YouTube
+                  </span>
+                  <ArrowUpRight
+                    size={20}
+                    className='text-[#8e6f77] group-hover:text-[#c3969a] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300'
+                  />
+                </a>
+              </div>
+              <div className='flex items-center justify-center px-2 h-[40px]'>
+                <a
+                  href='https://tiktok.com'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-2 text-[#8e6f77] font-poppins font-light text-lg leading-[27px] group'
+                >
+                  <span className='group-hover:text-[#c3969a] group-hover:underline transition-all duration-300'>
+                    TikTok
+                  </span>
+                  <ArrowUpRight
+                    size={20}
+                    className='text-[#8e6f77] group-hover:text-[#c3969a] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300'
+                  />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className='mt-12 pt-6'>
-          <p className='text-sm text-gray-600'>
-            © 2025 Raver Inc. All rights reserved.
-          </p>
+        <div className='flex flex-col space-y-6'>
+          <div className='h-[1px] w-full bg-[#8e6f77]'></div>
+          <div className='flex flex-col md:flex-row justify-between items-center'>
+            <div className='flex items-center space-x-2 mb-4 md:mb-0'>
+              <div className='flex items-center px-2 h-[40px]'>
+                <a
+                  href='/terms'
+                  className='flex items-center gap-2 text-[#8e6f77] font-poppins font-light text-lg leading-[27px] group'
+                >
+                  <span className='group-hover:text-[#c3969a] group-hover:underline transition-all duration-300'>
+                    Terms of Service
+                  </span>
+                  <ArrowUpRight
+                    size={20}
+                    className='text-[#8e6f77] group-hover:text-[#c3969a] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300'
+                  />
+                </a>
+              </div>
+              <div className='h-6 w-[1px] bg-[#8e6f77]'></div>
+              <div className='flex items-center px-2 h-[40px]'>
+                <a
+                  href='/privacy'
+                  className='flex items-center gap-2 text-[#8e6f77] font-poppins font-light text-lg leading-[27px] group'
+                >
+                  <span className='group-hover:text-[#c3969a] group-hover:underline transition-all duration-300'>
+                    Privacy Policy
+                  </span>
+                  <ArrowUpRight
+                    size={20}
+                    className='text-[#8e6f77] group-hover:text-[#c3969a] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300'
+                  />
+                </a>
+              </div>
+            </div>
+            <div className='flex items-center space-x-4'>
+              <p className='text-[#8e6f77] font-poppins font-light text-base leading-6 text-center'>
+                © 2025 Raver Inc. All rights reserved.
+              </p>
+              <div>
+                <img src={logo} alt='Raver logo' className='w-full h-full' />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

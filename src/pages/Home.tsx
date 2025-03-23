@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import AboutSection from '../components/AboutSection'
+import AboutUsSection from '../components/AboutUsSection'
+import AdvertisingSection from '../components/AdvertisingSection'
 import ElevateBrandSection from '../components/ElevateBrandSection'
 import HeroSection from '../components/HeroSection'
-import PurposeSection from '../components/PurposeSection'
 import TeamSection from '../components/TeamSection'
 
 export default function Home() {
@@ -12,6 +12,7 @@ export default function Home() {
   const homeRef = useRef(null)
   const aboutRef = useRef(null)
   const purposeRef = useRef(null)
+  const advertisingRef = useRef(null)
   const elevateRef = useRef(null)
   const teamRef = useRef(null)
 
@@ -23,6 +24,7 @@ export default function Home() {
         home: homeRef,
         about: aboutRef,
         purpose: purposeRef,
+        advertising: advertisingRef,
         work: elevateRef,
         team: teamRef,
       }
@@ -57,8 +59,8 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
-      <AboutSection />
-      <PurposeSection />
+      <AdvertisingSection />
+      <AboutUsSection />
       <ElevateBrandSection />
       <TeamSection />
     </div>

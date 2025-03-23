@@ -1,5 +1,5 @@
 import { X } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface ContactDialogProps {
   isOpen: boolean
@@ -17,6 +17,18 @@ const ContactDialog: React.FC<ContactDialogProps> = ({ isOpen, onClose }) => {
     message: '',
     agreedToTerms: false,
   })
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isOpen])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -48,122 +60,164 @@ const ContactDialog: React.FC<ContactDialogProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null
 
   return (
-    <div className='fixed inset-0 z-50 overflow-y-auto bg-black/30 backdrop-blur-sm flex items-center justify-center'>
-      <div className='fixed inset-0 md:relative md:inset-auto max-w-[800px] w-full h-full md:h-auto md:max-h-[90vh] md:rounded-3xl bg-white shadow-xl md:m-4 overflow-y-auto flex flex-col'>
-        <div className='sticky top-0 p-2 2xl:p-6 flex justify-end items-center bg-white z-10'>
-          <button
-            onClick={onClose}
-            className='p-2 rounded-full hover:bg-gray-100 transition-colors'
-            aria-label='Close dialog'
-          >
-            <X size={24} />
-          </button>
-        </div>
-        <h2 className='text-center text-2xl md:text-3xl font-bold w-full pb-0 2xl:pb-10'>
-          Connect With Us
-        </h2>
+    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm'>
+      <div className='fixed inset-0 flex items-center justify-center pointer-events-none overflow-hidden'>
+        <div
+          className='pointer-events-auto w-full max-w-4xl bg-[#F5F4F5] rounded shadow-xl overflow-y-auto'
+          style={{ maxHeight: 'calc(100vh)' }}
+        >
+          <div className='sticky top-0 right-0 flex justify-end p-4 bg-[#F5F4F5] z-10'>
+            <button
+              onClick={onClose}
+              className='text-[#8E6F77]'
+              aria-label='Close dialog'
+            >
+              <X size={24} />
+            </button>
+          </div>
 
-        <div className='flex-grow p-8 overflow-y-auto'>
-          <form onSubmit={handleSubmit}>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-              <div className='flex flex-col space-y-2'>
-                <label htmlFor='firstName' className='font-medium'>
-                  First Name<span className=''>*</span>
-                </label>
-                <input
-                  type='text'
-                  id='firstName'
-                  name='firstName'
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  placeholder='Enter your first name'
-                  required
-                  className='p-3 border border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-800'
-                />
+          <div className='flex flex-col items-center px-8 pb-16 pt-4 gap-12'>
+            <h2 className='font-serif text-3xl font-semibold text-center text-[#262832]'>
+              Connect With Us
+            </h2>
+
+            <div className='w-full border-t border-[#262832]'></div>
+
+            <form
+              onSubmit={handleSubmit}
+              className='flex flex-col w-full gap-8'
+            >
+              <div className='flex flex-col md:flex-row gap-6 md:gap-10'>
+                <div className='flex flex-col gap-3 w-full'>
+                  <label
+                    htmlFor='firstName'
+                    className='font-normal text-lg text-[#272A34]'
+                  >
+                    First Name*
+                  </label>
+                  <div className='relative border-2 border-[#C3969A] rounded'>
+                    <input
+                      type='text'
+                      id='firstName'
+                      name='firstName'
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                      placeholder='Enter your first name'
+                      className='w-full p-3 bg-transparent outline-none font-light text-lg placeholder-[#C3969A]'
+                    />
+                  </div>
+                </div>
+
+                <div className='flex flex-col gap-3 w-full'>
+                  <label
+                    htmlFor='lastName'
+                    className='font-normal text-lg text-[#272A34]'
+                  >
+                    Last Name*
+                  </label>
+                  <div className='relative border-2 border-[#C3969A] rounded'>
+                    <input
+                      type='text'
+                      id='lastName'
+                      name='lastName'
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                      placeholder='Enter your last name'
+                      className='w-full p-3 bg-transparent outline-none font-light text-lg placeholder-[#C3969A]'
+                    />
+                  </div>
+                </div>
               </div>
 
-              <div className='flex flex-col space-y-2'>
-                <label htmlFor='lastName' className='font-medium'>
-                  Last Name<span className=''>*</span>
-                </label>
-                <input
-                  type='text'
-                  id='lastName'
-                  name='lastName'
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  placeholder='Enter your last name'
-                  required
-                  className='p-3 border border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-800'
-                />
+              <div className='flex flex-col md:flex-row gap-6 md:gap-10'>
+                <div className='flex flex-col gap-3 w-full'>
+                  <label
+                    htmlFor='email'
+                    className='font-normal text-lg text-[#272A34]'
+                  >
+                    Email*
+                  </label>
+                  <div className='relative border-2 border-[#C3969A] rounded'>
+                    <input
+                      type='email'
+                      id='email'
+                      name='email'
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      placeholder='Enter your email'
+                      className='w-full p-3 bg-transparent outline-none font-light text-lg placeholder-[#C3969A]'
+                    />
+                  </div>
+                </div>
+
+                <div className='flex flex-col gap-3 w-full'>
+                  <label
+                    htmlFor='phone'
+                    className='font-normal text-lg text-[#272A34]'
+                  >
+                    Phone Number
+                  </label>
+                  <div className='relative border-2 border-[#C3969A] rounded'>
+                    <input
+                      type='tel'
+                      id='phone'
+                      name='phone'
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder='Enter your phone number'
+                      className='w-full p-3 bg-transparent outline-none font-light text-lg placeholder-[#C3969A]'
+                    />
+                  </div>
+                </div>
               </div>
 
-              <div className='flex flex-col space-y-2'>
-                <label htmlFor='email' className='font-medium'>
-                  Email<span className=''>*</span>
-                </label>
-                <input
-                  type='email'
-                  id='email'
-                  name='email'
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder='Enter your email'
-                  required
-                  className='p-3 border border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-800'
-                />
+              <div className='flex flex-col md:flex-row gap-6 md:gap-10'>
+                <div className='flex flex-col gap-3 w-full'>
+                  <label
+                    htmlFor='company'
+                    className='font-normal text-lg text-[#272A34]'
+                  >
+                    Company Name
+                  </label>
+                  <div className='relative border-2 border-[#C3969A] rounded'>
+                    <input
+                      type='text'
+                      id='company'
+                      name='company'
+                      value={formData.company}
+                      onChange={handleChange}
+                      required
+                      placeholder='Enter your company name'
+                      className='w-full p-3 bg-transparent outline-none font-light text-lg placeholder-[#C3969A]'
+                    />
+                  </div>
+                </div>
+
+                <div className='flex flex-col gap-3 w-full'>
+                  <label
+                    htmlFor='instagram'
+                    className='font-normal text-lg text-[#272A34]'
+                  >
+                    Instagram Username
+                  </label>
+                  <div className='relative border-2 border-[#C3969A] rounded'>
+                    <input
+                      type='text'
+                      id='instagram'
+                      name='instagram'
+                      value={formData.instagram}
+                      onChange={handleChange}
+                      placeholder='Enter your instagram username'
+                      className='w-full p-3 bg-transparent outline-none font-light text-lg placeholder-[#C3969A]'
+                    />
+                  </div>
+                </div>
               </div>
 
-              <div className='flex flex-col space-y-2'>
-                <label htmlFor='phone' className='font-medium'>
-                  Phone Number
-                </label>
-                <input
-                  type='tel'
-                  id='phone'
-                  name='phone'
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder='Enter your phone number'
-                  className='p-3 border border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-800'
-                />
-              </div>
-
-              <div className='flex flex-col space-y-2'>
-                <label htmlFor='company' className='font-medium'>
-                  Company Name<span className=''>*</span>
-                </label>
-                <input
-                  type='text'
-                  id='company'
-                  name='company'
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder='Enter your company name'
-                  required
-                  className='p-3 border border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-800'
-                />
-              </div>
-
-              <div className='flex flex-col space-y-2'>
-                <label htmlFor='instagram' className='font-medium'>
-                  Instagram Username
-                </label>
-                <input
-                  type='text'
-                  id='instagram'
-                  name='instagram'
-                  value={formData.instagram}
-                  onChange={handleChange}
-                  placeholder='Enter your instagram username'
-                  className='p-3 border border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-800'
-                />
-              </div>
-
-              <div className='flex flex-col space-y-2 md:col-span-2'>
-                <label htmlFor='message' className='font-medium'>
-                  Message
-                </label>
+              <div className='relative border-2 border-[#C3969A] rounded'>
                 <textarea
                   id='message'
                   name='message'
@@ -171,12 +225,12 @@ const ContactDialog: React.FC<ContactDialogProps> = ({ isOpen, onClose }) => {
                   onChange={handleChange}
                   placeholder='Enter message'
                   rows={5}
-                  className='p-4 border border-gray-600 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-800 resize-none'
+                  className='w-full p-5 bg-transparent outline-none font-light text-lg placeholder-[#C3969A] resize-none'
                 />
               </div>
 
-              <div className='md:col-span-2'>
-                <div className='flex items-start gap-3'>
+              <div className='flex items-center gap-3'>
+                <div className='relative'>
                   <input
                     type='checkbox'
                     id='agreedToTerms'
@@ -184,45 +238,53 @@ const ContactDialog: React.FC<ContactDialogProps> = ({ isOpen, onClose }) => {
                     checked={formData.agreedToTerms}
                     onChange={handleCheckboxChange}
                     required
-                    className='mt-1 h-5 w-5 rounded border-gray-600  focus:ring-gray-800'
+                    className='w-5 h-5 appearance-none border-2 border-[#C3969A] rounded cursor-pointer'
+                    style={{
+                      background: formData.agreedToTerms
+                        ? '#C3969A'
+                        : 'transparent',
+                    }}
                   />
-                  <label
-                    htmlFor='agreedToTerms'
-                    className='text-base text-gray-700'
-                  >
-                    I agree to Raver.ai{' '}
-                    <a
-                      href='/terms'
-                      className=' underline'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Terms of Service
-                    </a>
-                    {' & '}
-                    <a
-                      href='/privacy'
-                      className=' underline'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Privacy Policy
-                    </a>
-                  </label>
+                  {formData.agreedToTerms && (
+                    <div className='absolute h-2 w-2 top-1 left-1 right-1 bottom-1 flex items-center justify-center'>
+                      <div className='w-3 h-2 border-r-2 border-b-2 border-[#F5F4F5] transform rotate-45 translate-y-[-2px]'></div>
+                    </div>
+                  )}
                 </div>
+                <label
+                  htmlFor='agreedToTerms'
+                  className='font-normal text-lg text-[#272A34]'
+                >
+                  I agree to Raver.ai{' '}
+                  <a
+                    href='/terms'
+                    className='underline'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Terms of Service
+                  </a>
+                  {' & '}
+                  <a
+                    href='/privacy'
+                    className='underline'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Privacy Policy
+                  </a>
+                </label>
               </div>
-            </div>
 
-            <div className='mt-8'>
               <button
                 type='submit'
                 disabled={!formData.agreedToTerms}
-                className='w-full py-2 bg-gray-900 text-white rounded-full text-lg font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200'
+                className='w-full py-3 bg-[#C3969A] text-[#F5F4F5] rounded text-base font-normal hover:bg-[#b38488] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
               >
                 Send
               </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>

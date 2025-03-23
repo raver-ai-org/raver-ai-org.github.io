@@ -160,7 +160,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     overflow: 'hidden',
   }
 
-  // Apply aspect ratio or height
   if (aspectRatio) {
     containerStyle.aspectRatio = aspectRatio
   } else {
@@ -229,10 +228,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
       {!isPlaying && (
         <div
-          className='absolute inset-0 cursor-pointer'
+          className='absolute inset-0 cursor-pointer flex items-center justify-center'
           onClick={handlePlayPause}
         >
-          <div className='absolute left-4 sm:left-6 bottom-4 sm:bottom-6 z-10'>
+          <div className='z-10'>
             <PlayIcon />
           </div>
         </div>

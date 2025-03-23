@@ -1,136 +1,219 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import carolyn from '../assets/carolyn.png'
 import fabienne from '../assets/fabienne.png'
 import greg from '../assets/greg.png'
 import zara from '../assets/zara.png'
 
-type TeamMemberProps = {
-  name: string
-  title: string
-  description: string
-  imagePosition: 'left' | 'right'
-  image: string
-}
-
-const TeamMember: React.FC<TeamMemberProps> = ({
-  name,
-  title,
-  description,
-  imagePosition,
-  image,
-}) => {
-  const fullName = title ? `${name} - ${title}` : name
-
-  return (
-    <div
-      className={`flex items-center w-full gap-6 sm:gap-8 md:gap-12 lg:gap-20 
-                flex-col md:flex-row ${
-                  imagePosition === 'right'
-                    ? 'md:flex-row-reverse'
-                    : 'md:flex-row'
-                }`}
-    >
-      <div
-        className='w-full md:w-[250px] lg:w-80 h-[200px] sm:h-[220px] md:h-[240px] lg:h-60 
-                     rounded-[24px] sm:rounded-[32px] md:rounded-[48px] 
-                     bg-[#E3D3CF] shrink-0 overflow-hidden'
-      >
-        <img
-          src={image}
-          alt={name}
-          className='w-full h-full object-cover min-h-[235px]'
-        />
-      </div>
-
-      <div className='flex flex-col justify-center items-start gap-2 sm:gap-3 md:gap-4 flex-1 mt-4 md:mt-0'>
-        <h3 className='text-black font-playfair text-xl sm:text-2xl font-bold leading-tight'>
-          {fullName}
-        </h3>
-        <p className='text-black font-montserrat text-sm sm:text-base md:text-lg font-normal leading-relaxed sm:leading-7 md:leading-8'>
-          {description}
-        </p>
-      </div>
-    </div>
-  )
-}
-
-const TeamHeader: React.FC = () => {
-  return (
-    <div className='flex flex-col justify-center items-center gap-3 sm:gap-4 w-full'>
-      <h2 className='w-full max-w-[880px] text-black text-center font-playfair text-3xl sm:text-4xl md:text-5xl font-bold leading-tight'>
-        Meet The Heart and Soul of Raver
-      </h2>
-      <div className='w-full max-w-[880px] text-black text-center font-montserrat'>
-        <p className='text-base sm:text-lg md:text-xl lg:text-[24px] font-medium leading-relaxed sm:leading-7 md:leading-8'>
-          The power behind Raver – visionaries, storytellers and creatives.
-          Blending innovation in technology, with creativity and heart to
-          transform AI into a storytelling force that connects and inspires
-          action.
-        </p>
-      </div>
-    </div>
-  )
-}
-
 const TeamSection: React.FC = () => {
-  const teamMembers = [
-    {
-      name: 'Greg Boyd',
-      title: 'CEO',
-      description:
-        'Greg Boyd is a creative tech entrepreneur and visionary leader focused on helping companies enhance their brand and drive revenue through visually compelling storytelling. With a background in management and technology consulting, he has worked with top firms like KPMG, IBM, and Travelers Insurance while launching multiple startups. Greg is also passionate about mentorship and talent development, founding Mango Mentors to connect emerging tech talent with industry leaders. His mission is to blend innovation, creativity, and purpose to transform how businesses engage with their audiences.',
-      imagePosition: 'left' as const,
-      image: greg,
-    },
-    {
-      name: 'Fabienne Heymans',
-      title: 'Chief Creative Director',
-      description:
-        'Fabienne Heymans is a visionary Creative Director with an esteemed career in the beauty and fashion industries. As an international model and actor, she has represented iconic brands such as Maybelline, Revlon, Clinique, Ulta, Prose, Moroccanoil, and L’Oréal, collaborating with top photographers, designers, and creatives worldwide. Her expertise in aesthetics, branding, and storytelling—combined with her passion for conscious living and environmental sustainability—enables her to craft immersive experiences that seamlessly merge art, technology, and purpose. As Creative Director at Raver, Fabienne leads the artistic vision, ensuring the development of high-impact advertising content that leverages AI-powered tools. Through visually striking imagery, compelling narratives, and emotionally resonant storytelling, she creates content that not only captures attention but also inspires, moves, and deeply connects with audiences.',
-      imagePosition: 'right' as const,
-      image: fabienne,
-    },
-    {
-      name: 'Carolyn Neff',
-      title: 'Chief of storytelling and Content',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum ornare elit, eu tincidunt velit scelerisque id. In porttitor pellentesque mauris, nec pretium augue. In vehicula enim nisl. Phasellus euismod sollicitudin nisl, eu ultrices velit cursus quis. Nam vitae elit eget nisi venenatis dignissim at ac libero. In sagittis sem a justo lobortis aliquet. Proin dapibus, dolor quis porta pretium, purus est placerat mauris, ut vehicula mi tellus vel augue.',
-      imagePosition: 'left' as const,
-      image: carolyn,
-    },
-    {
-      name: 'Zara',
-      title: 'Content Creator',
-      description:
-        "I'm a content creator and AI artist with a deep passion for digital innovation. Being part of the Raver community inspires me to blend technology and creativity, crafting immersive visuals that reflect its energy and spirit. I love playing with colors, light, and dynamic compositions to create eye-catching visuals that stand out, pushing creative boundaries to bring bold, futuristic ideas to life.",
-      imagePosition: 'right' as const,
-      image: zara,
-    },
-  ]
+  const teamRef = useRef(null)
+  const [expandedBios, setExpandedBios] = useState({
+    greg: false,
+    fabienne: false,
+    carolyn: false,
+    zara: false,
+  })
+
+  const toggleBio = (member: keyof typeof expandedBios) => {
+    setExpandedBios({
+      ...expandedBios,
+      [member]: !expandedBios[member],
+    })
+  }
+
+  const fullBios = {
+    greg: 'Greg Boyd is a creative tech entrepreneur and visionary leader focused on helping companies enhance their brand and drive revenue through visually compelling storytelling. With a background in management and technology consulting, he has worked with top firms like KPMG, IBM, and Travelers Insurance while launching multiple startups. Greg is also passionate about mentorship and talent development, founding Mango Mentors to connect emerging tech talent with industry leaders. His mission is to blend innovation, creativity, and purpose to transform how businesses engage with their audiences.',
+    fabienne:
+      "Fabienne Heymans is a visionary Creative Director with a distinguished career in beauty and fashion. As an international model and actor, she represented top brands like Maybelline, Revlon, and L'Oréal, collaborating with leading creatives worldwide. Her expertise in aesthetics, branding, and storytelling—combined with a passion for conscious living—allows her to merge art, technology, and purpose. As Creative Director at Raver, she leads the artistic vision, using AI-powered tools to craft visually striking, emotionally resonant content that inspires and connects deeply with audiences.",
+    carolyn:
+      'Carolyn Neff is a multifaceted talent who excels as an actress, producer, and entrepreneur. As an accomplished actress, she brings captivating performances to the screen. She demonstrates a keen eye for storytelling and project development as a producer. Beyond entertainment, Carolyn is a driven entrepreneur, showcasing business acumen and a passion for innovation. Her diverse skills and commitment to excellence make her a dynamic force in various fields.',
+    zara: "Zara is the Lead Creative Strategist at RAVER, spearheading a dynamic team of AI creatives who continually push the envelope of digital art. Her leadership drives the creation of immersive visuals that capture the client's energy and spirit, blending technology and creativity in innovative ways. Under her guidance, the team develops bold, futuristic concepts that not only redefine visual boundaries but also leave clients continually amazed and inspired by their imaginative designs.",
+  }
+
+  const shortBios = {
+    greg: 'Greg Boyd is a creative tech entrepreneur and visionary leader focused on helping companies enhance their brand and drive revenue through visually compelling storytelling. With a background in management and technology...',
+    fabienne:
+      "Fabienne Heymans is a visionary Creative Director with a distinguished career in beauty and fashion. As an international model and actor, she represented top brands like Maybelline, Revlon, and L'Oréal, collaborating with leading creatives...",
+    carolyn:
+      'Carolyn Neff is a multifaceted talent who excels as an actress, producer, and entrepreneur. As an accomplished actress, she brings captivating performances to the screen. She demonstrates a keen eye for storytelling and project development...',
+    zara: "Zara is the Lead Creative Strategist at RAVER, spearheading a dynamic team of AI creatives who continually push the envelope of digital art. Her leadership drives the creation of immersive visuals that capture the client's energy and spirit, blending....",
+  }
 
   return (
-    <div
-      id='team'
-      className='flex w-full flex-col items-start bg-[#F4EDEC] rounded-[24px] sm:rounded-[32px] md:rounded-[48px] 
-                max-w-[95%] sm:max-w-[90%] lg:max-w-[95%] mx-auto mb-12 md:mb-20'
-    >
+    <div className='bg-[#ecedec] w-full flex justify-center items-center'>
       <div
-        className='flex px-4 py-8 sm:p-8 md:p-10 lg:p-16 xl:p-20 
-                     flex-col items-start gap-10 sm:gap-12 md:gap-16 lg:gap-20 w-full 
-                     rounded-[24px] sm:rounded-[32px] md:rounded-[48px]'
+        ref={teamRef}
+        id='team'
+        className='flex flex-col items-start py-32 px-16 bg-[#ecedec] w-full max-w-[94.5rem] mx-auto'
       >
-        <TeamHeader />
-        <div className='flex flex-col items-start gap-10 sm:gap-12 md:gap-16 lg:gap-20 w-full'>
-          {teamMembers.map((member, index) => (
-            <TeamMember
-              key={index}
-              name={member.name}
-              title={member.title}
-              description={member.description}
-              imagePosition={member.imagePosition}
-              image={member.image}
-            />
-          ))}
+        <div className='flex flex-col items-start gap-16 w-full'>
+          <div className='flex flex-col items-start gap-16 w-full max-w-[657px]'>
+            <div className='flex flex-col items-start gap-6 w-full'>
+              <div className='flex flex-col items-start gap-2 w-full'>
+                <p className='text-[#272a34] font-poppins font-medium text-lg leading-[27px]'>
+                  Our Team
+                </p>
+
+                <h2 className='text-[#272a34] font-cormorant font-bold text-3xl leading-[39px]'>
+                  Meet The Heart and Soul of Raver
+                </h2>
+              </div>
+
+              <div className='w-full h-[1px] bg-[#272a34]'></div>
+
+              <p className='text-[#272a34] font-poppins font-light text-base leading-8'>
+                The power behind Raver – visionaries, storytellers and
+                creatives. Blending innovation in technology, with creativity
+                and heart to transform AI into a storytelling force that
+                connects and inspires action.
+              </p>
+            </div>
+          </div>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 w-full'>
+            <div className='flex flex-col items-start gap-4 w-full max-w-[310px]'>
+              <div className='relative w-full md:w-[310px] h-[310px] rounded-md overflow-hidden bg-[#272a34]'>
+                <img
+                  src={greg}
+                  alt='Greg Boyd'
+                  className='w-full h-full object-cover'
+                />
+              </div>
+
+              <div className='flex flex-col items-start gap-4 w-full'>
+                <div className='flex flex-col items-start gap-4 w-full'>
+                  <div className='flex flex-col items-start w-full'>
+                    <h3 className='text-[#272a34] font-cormorant font-bold text-2xl leading-8'>
+                      Greg Boyd
+                    </h3>
+
+                    <p className='text-[#272a34] font-poppins text-base leading-8'>
+                      CEO & Founder
+                    </p>
+                  </div>
+
+                  <p className='text-[#272a34] font-poppins font-light text-base leading-8'>
+                    {expandedBios.greg ? fullBios.greg : shortBios.greg}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => toggleBio('greg')}
+                  className='text-[#272a34] font-poppins text-base leading-6 underline'
+                >
+                  {expandedBios.greg ? 'See Less' : 'See More'}
+                </button>
+              </div>
+            </div>
+
+            <div className='flex flex-col items-start gap-4 w-full max-w-[310px]'>
+              <div className='relative w-full md:w-[310px] h-[310px] rounded-md overflow-hidden bg-[#272a34]'>
+                <img
+                  src={fabienne}
+                  alt='Fabienne Heymans'
+                  className='w-full h-full object-cover'
+                />
+              </div>
+
+              <div className='flex flex-col items-start gap-4 w-full'>
+                <div className='flex flex-col items-start gap-4 w-full'>
+                  <div className='flex flex-col items-start w-full'>
+                    <h3 className='text-[#272a34] font-cormorant font-bold text-2xl leading-8'>
+                      Fabienne Heymans
+                    </h3>
+
+                    <p className='text-[#272a34] font-poppins text-base leading-8'>
+                      Chief Creative Director
+                    </p>
+                  </div>
+
+                  <p className='text-[#272a34] font-poppins font-light text-base leading-8'>
+                    {expandedBios.fabienne
+                      ? fullBios.fabienne
+                      : shortBios.fabienne}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => toggleBio('fabienne')}
+                  className='text-[#272a34] font-poppins text-base leading-6 underline'
+                >
+                  {expandedBios.fabienne ? 'See Less' : 'See More'}
+                </button>
+              </div>
+            </div>
+
+            <div className='flex flex-col items-start gap-4 w-full max-w-[310px]'>
+              <div className='relative w-full md:w-[310px] h-[310px] rounded-md overflow-hidden bg-[#272a34]'>
+                <img
+                  src={carolyn}
+                  alt='Carolyn Neff'
+                  className='w-full h-full object-cover'
+                />
+              </div>
+
+              <div className='flex flex-col items-start gap-4 w-full'>
+                <div className='flex flex-col items-start gap-4 w-full'>
+                  <div className='flex flex-col items-start w-full'>
+                    <h3 className='text-[#272a34] font-cormorant font-bold text-2xl leading-8'>
+                      Carolyn Neff
+                    </h3>
+
+                    <p className='text-[#272a34] font-poppins text-base leading-8'>
+                      Chief of storytelling and Content
+                    </p>
+                  </div>
+
+                  <p className='text-[#272a34] font-poppins font-light text-base leading-8'>
+                    {expandedBios.carolyn
+                      ? fullBios.carolyn
+                      : shortBios.carolyn}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => toggleBio('carolyn')}
+                  className='text-[#272a34] font-poppins text-base leading-6 underline'
+                >
+                  {expandedBios.carolyn ? 'See Less' : 'See More'}
+                </button>
+              </div>
+            </div>
+
+            <div className='flex flex-col items-start gap-4 w-full max-w-[310px]'>
+              <div className='relative w-full md:w-[310px] h-[310px] rounded-md overflow-hidden bg-[#272a34]'>
+                <img
+                  src={zara}
+                  alt='Zara'
+                  className='w-full h-full object-cover'
+                />
+              </div>
+
+              <div className='flex flex-col items-start gap-4 w-full'>
+                <div className='flex flex-col items-start gap-4 w-full'>
+                  <div className='flex flex-col items-start w-full'>
+                    <h3 className='text-[#272a34] font-cormorant font-bold text-2xl leading-8'>
+                      Zara
+                    </h3>
+
+                    <p className='text-[#272a34] font-poppins text-base leading-8'>
+                      Lead Creative Strategist
+                    </p>
+                  </div>
+
+                  <p className='text-[#272a34] font-poppins font-light text-base leading-8'>
+                    {expandedBios.zara ? fullBios.zara : shortBios.zara}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => toggleBio('zara')}
+                  className='text-[#272a34] font-poppins text-base leading-6 underline'
+                >
+                  {expandedBios.zara ? 'See Less' : 'See More'}
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

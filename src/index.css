@@ -2,16 +2,7 @@
 @import 'swiper/css';
 @import 'swiper/css/effect-fade';
 @import 'swiper/css/autoplay';
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-}
+@import 'swiper/css/pagination';
 
 h1,
 h2,
@@ -19,17 +10,65 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
 }
- 
+
 p,
 li,
 a,
 button,
 label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 input::placeholder {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-image: linear-gradient(
+    135deg,
+    #f7f5f3 0%,
+    #efebe7 100%
+  ) !important;
+  font-family: 'Inter', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.custom-bullets {
+  pointer-events: auto;
+}
+
+.custom-bullet {
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 4px !important;
+}
+
+.custom-bullet:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+  .custom-bullet {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .custom-bullets {
+    gap: 8px;
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+}
+
+@theme inline {
+  --text-3xl: 2rem;
+}
+
+:root {
+  --swiper-wrapper-transition-timing-function: linear !important;
 }
