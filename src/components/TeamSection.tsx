@@ -43,24 +43,24 @@ const TeamSection: React.FC = () => {
       <div
         ref={teamRef}
         id='team'
-        className='flex flex-col items-start py-32 px-16 bg-[#ecedec] w-full max-w-[94.5rem] mx-auto'
+        className='flex flex-col items-start py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-8 md:px-12 lg:px-16 bg-[#ecedec] w-full max-w-[94.5rem] mx-auto'
       >
-        <div className='flex flex-col items-start gap-16 w-full'>
-          <div className='flex flex-col items-start gap-16 w-full max-w-[657px]'>
-            <div className='flex flex-col items-start gap-6 w-full'>
+        <div className='flex flex-col items-start gap-8 sm:gap-12 md:gap-16 w-full'>
+          <div className='flex flex-col items-start gap-8 sm:gap-12 md:gap-16 w-full max-w-full md:max-w-[657px]'>
+            <div className='flex flex-col items-start gap-4 sm:gap-6 w-full'>
               <div className='flex flex-col items-start gap-2 w-full'>
-                <p className='text-[#272a34] font-poppins font-medium text-lg leading-[27px]'>
+                <p className='text-[#272a34] font-poppins font-medium text-base sm:text-lg leading-[27px]'>
                   Our Team
                 </p>
 
-                <h2 className='text-[#272a34] font-cormorant font-bold text-3xl leading-[39px]'>
+                <h2 className='text-[#272a34] font-cormorant font-bold text-2xl sm:text-3xl leading-[39px] uppercase'>
                   Meet The Heart and Soul of Raver
                 </h2>
               </div>
 
               <div className='w-full h-[1px] bg-[#272a34]'></div>
 
-              <p className='text-[#272a34] font-poppins font-light text-base leading-8'>
+              <p className='text-[#272a34] font-poppins font-light text-sm sm:text-base leading-7 sm:leading-8'>
                 The power behind Raver – visionaries, storytellers and
                 creatives. Blending innovation in technology, with creativity
                 and heart to transform AI into a storytelling force that
@@ -69,9 +69,9 @@ const TeamSection: React.FC = () => {
             </div>
           </div>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 w-full'>
-            <div className='flex flex-col items-start gap-4 w-full max-w-[310px]'>
-              <div className='relative w-full md:w-[310px] h-[310px] rounded-md overflow-hidden bg-[#272a34]'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 w-full'>
+            <div className='flex flex-col items-start gap-4 w-full'>
+              <div className='relative w-full aspect-square rounded-md overflow-hidden bg-[#272a34]'>
                 <img
                   src={greg}
                   alt='Greg Boyd'
@@ -80,33 +80,33 @@ const TeamSection: React.FC = () => {
               </div>
 
               <div className='flex flex-col items-start gap-4 w-full'>
-                <div className='flex flex-col items-start gap-4 w-full'>
+                <div className='flex flex-col items-start gap-3 sm:gap-4 w-full'>
                   <div className='flex flex-col items-start w-full'>
-                    <h3 className='text-[#272a34] font-cormorant font-bold text-2xl leading-8'>
+                    <h3 className='text-[#272a34] font-cormorant font-bold text-xl sm:text-2xl leading-8'>
                       Greg Boyd
                     </h3>
 
-                    <p className='text-[#272a34] font-poppins text-base leading-8'>
+                    <p className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 sm:leading-8'>
                       CEO & Founder
                     </p>
                   </div>
 
-                  <p className='text-[#272a34] font-poppins font-light text-base leading-8'>
+                  <p className='text-[#272a34] font-poppins font-light text-sm sm:text-base leading-6 sm:leading-8'>
                     {expandedBios.greg ? fullBios.greg : shortBios.greg}
                   </p>
                 </div>
 
                 <button
                   onClick={() => toggleBio('greg')}
-                  className='text-[#272a34] font-poppins text-base leading-6 underline'
+                  className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 underline'
                 >
                   {expandedBios.greg ? 'See Less' : 'See More'}
                 </button>
               </div>
             </div>
 
-            <div className='flex flex-col items-start gap-4 w-full max-w-[310px]'>
-              <div className='relative w-full md:w-[310px] h-[310px] rounded-md overflow-hidden bg-[#272a34]'>
+            <div className='flex flex-col items-start gap-4 w-full'>
+              <div className='relative w-full aspect-square rounded-md overflow-hidden bg-[#272a34]'>
                 <img
                   src={fabienne}
                   alt='Fabienne Heymans'
@@ -115,18 +115,18 @@ const TeamSection: React.FC = () => {
               </div>
 
               <div className='flex flex-col items-start gap-4 w-full'>
-                <div className='flex flex-col items-start gap-4 w-full'>
+                <div className='flex flex-col items-start gap-3 sm:gap-4 w-full'>
                   <div className='flex flex-col items-start w-full'>
-                    <h3 className='text-[#272a34] font-cormorant font-bold text-2xl leading-8'>
+                    <h3 className='text-[#272a34] font-cormorant font-bold text-xl sm:text-2xl leading-8'>
                       Fabienne Heymans
                     </h3>
 
-                    <p className='text-[#272a34] font-poppins text-base leading-8'>
+                    <p className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 sm:leading-8'>
                       Chief Creative Director
                     </p>
                   </div>
 
-                  <p className='text-[#272a34] font-poppins font-light text-base leading-8'>
+                  <p className='text-[#272a34] font-poppins font-light text-sm sm:text-base leading-6 sm:leading-8'>
                     {expandedBios.fabienne
                       ? fullBios.fabienne
                       : shortBios.fabienne}
@@ -135,15 +135,15 @@ const TeamSection: React.FC = () => {
 
                 <button
                   onClick={() => toggleBio('fabienne')}
-                  className='text-[#272a34] font-poppins text-base leading-6 underline'
+                  className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 underline'
                 >
                   {expandedBios.fabienne ? 'See Less' : 'See More'}
                 </button>
               </div>
             </div>
 
-            <div className='flex flex-col items-start gap-4 w-full max-w-[310px]'>
-              <div className='relative w-full md:w-[310px] h-[310px] rounded-md overflow-hidden bg-[#272a34]'>
+            <div className='flex flex-col items-start gap-4 w-full'>
+              <div className='relative w-full aspect-square rounded-md overflow-hidden bg-[#272a34]'>
                 <img
                   src={carolyn}
                   alt='Carolyn Neff'
@@ -152,18 +152,18 @@ const TeamSection: React.FC = () => {
               </div>
 
               <div className='flex flex-col items-start gap-4 w-full'>
-                <div className='flex flex-col items-start gap-4 w-full'>
+                <div className='flex flex-col items-start gap-3 sm:gap-4 w-full'>
                   <div className='flex flex-col items-start w-full'>
-                    <h3 className='text-[#272a34] font-cormorant font-bold text-2xl leading-8'>
+                    <h3 className='text-[#272a34] font-cormorant font-bold text-xl sm:text-2xl leading-8'>
                       Carolyn Neff
                     </h3>
 
-                    <p className='text-[#272a34] font-poppins text-base leading-8'>
+                    <p className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 sm:leading-8'>
                       Chief of storytelling and Content
                     </p>
                   </div>
 
-                  <p className='text-[#272a34] font-poppins font-light text-base leading-8'>
+                  <p className='text-[#272a34] font-poppins font-light text-sm sm:text-base leading-6 sm:leading-8'>
                     {expandedBios.carolyn
                       ? fullBios.carolyn
                       : shortBios.carolyn}
@@ -172,15 +172,15 @@ const TeamSection: React.FC = () => {
 
                 <button
                   onClick={() => toggleBio('carolyn')}
-                  className='text-[#272a34] font-poppins text-base leading-6 underline'
+                  className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 underline'
                 >
                   {expandedBios.carolyn ? 'See Less' : 'See More'}
                 </button>
               </div>
             </div>
 
-            <div className='flex flex-col items-start gap-4 w-full max-w-[310px]'>
-              <div className='relative w-full md:w-[310px] h-[310px] rounded-md overflow-hidden bg-[#272a34]'>
+            <div className='flex flex-col items-start gap-4 w-full'>
+              <div className='relative w-full aspect-square rounded-md overflow-hidden bg-[#272a34]'>
                 <img
                   src={zara}
                   alt='Zara'
@@ -189,25 +189,25 @@ const TeamSection: React.FC = () => {
               </div>
 
               <div className='flex flex-col items-start gap-4 w-full'>
-                <div className='flex flex-col items-start gap-4 w-full'>
+                <div className='flex flex-col items-start gap-3 sm:gap-4 w-full'>
                   <div className='flex flex-col items-start w-full'>
-                    <h3 className='text-[#272a34] font-cormorant font-bold text-2xl leading-8'>
+                    <h3 className='text-[#272a34] font-cormorant font-bold text-xl sm:text-2xl leading-8'>
                       Zara
                     </h3>
 
-                    <p className='text-[#272a34] font-poppins text-base leading-8'>
+                    <p className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 sm:leading-8'>
                       Lead Creative Strategist
                     </p>
                   </div>
 
-                  <p className='text-[#272a34] font-poppins font-light text-base leading-8'>
+                  <p className='text-[#272a34] font-poppins font-light text-sm sm:text-base leading-6 sm:leading-8'>
                     {expandedBios.zara ? fullBios.zara : shortBios.zara}
                   </p>
                 </div>
 
                 <button
                   onClick={() => toggleBio('zara')}
-                  className='text-[#272a34] font-poppins text-base leading-6 underline'
+                  className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 underline'
                 >
                   {expandedBios.zara ? 'See Less' : 'See More'}
                 </button>

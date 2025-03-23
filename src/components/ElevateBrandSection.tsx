@@ -21,7 +21,7 @@ const ElevateBrandSection: React.FC = () => {
               <p className='text-[#8e6f77] font-poppins font-medium text-lg leading-[27px]'>
                 Faster, Smarter and More Effective
               </p>
-              <h2 className='text-[#8e6f77] font-cormorant font-bold text-3xl leading-[39px]'>
+              <h2 className='text-[#8e6f77] font-cormorant font-bold text-3xl leading-[39px] uppercase'>
                 Let Raver elevate your brand and bring your vision to life.
               </h2>
             </div>

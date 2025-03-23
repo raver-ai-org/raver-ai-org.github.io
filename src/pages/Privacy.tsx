@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const PrivacyPage = () => {
-  const [activeSection, setActiveSection] = useState('terms')
+  const [activeSection, setActiveSection] = useState('information')
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -29,7 +29,13 @@ const PrivacyPage = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['terms', 'privacy', 'usage', 'account', 'rights']
+      const sections = [
+        'information',
+        'usage',
+        'sharing',
+        'rights',
+        'additional',
+      ]
       const scrollPosition = window.scrollY + (isMobile ? 150 : 100)
 
       let currentSection = sections[0]
@@ -57,18 +63,18 @@ const PrivacyPage = () => {
     handleScroll()
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [isMobile])
+  }, [isMobile, activeSection])
 
   const navigationItems = [
-    { id: 'terms', label: 'Terms' },
-    { id: 'privacy', label: 'Privacy' },
-    { id: 'usage', label: 'Usage' },
-    { id: 'account', label: 'Account' },
-    { id: 'rights', label: 'Rights' },
+    { id: 'information', label: 'Information Collection' },
+    { id: 'usage', label: 'Information Usage' },
+    { id: 'sharing', label: 'Information Sharing' },
+    { id: 'rights', label: 'Your Rights' },
+    { id: 'additional', label: 'Additional Info' },
   ]
 
   return (
-    <div className='flex flex-col md:flex-row min-h-screen w-full pt-16 bg-[#262832]'>
+    <div className='flex flex-col md:flex-row min-h-screen w-full pt-16 p-8 md:p-16 bg-[#262832]'>
       <nav
         className={`
         ${isMobile ? 'w-full' : 'w-[320px] h-auto sticky top-[100px]'} 
@@ -80,7 +86,7 @@ const PrivacyPage = () => {
         rounded-sm
       `}
       >
-        <h2 className='font-bold text-2xl mb-6'>Terms of Service</h2>
+        <h2 className='font-bold text-2xl mb-6'>Privacy Statement</h2>
 
         <div
           className={`
@@ -114,175 +120,183 @@ const PrivacyPage = () => {
         </div>
       </nav>
 
-      <main className='flex-1 p-6 md:p-12 max-w-[90%] md:max-w-[90%] mx-auto bg-[#262832] rounded-[48px] mt-10 mb-10 mr-10 text-[#C3969A]'>
-        <section id='terms' className='mb-16'>
-          <h2 className='font-bold text-2xl md:text-3xl mb-6'>
-            1. Terms and Conditions
-          </h2>
-          <p className='mb-4 text-base'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            condimentum tortor sem, in semper nisl bibendum eu. Duis tempor
-            lorem nibh, quis pellentesque mauris faucibus a. Ut efficitur mollis
-            metus at sollicitudin. Aenean consectetur maximus pulvinar. Nam non
-            egestas lorem, vitae sagittis elit. Cras vel eros id ipsum semper
-            mollis.
+      <div className='flex-1 md:p-12 md:pl-20 max-w-[90%] mt-16 md:mt-0 mx-auto bg-[#262832] rounded-[48px] text-[#C3969A]'>
+        <div className='mb-12'>
+          <h1 className='font-bold text-3xl md:text-4xl mb-4'>
+            Privacy Statement
+          </h1>
+          <p className='text-base'>Last Updated: April 15, 2024</p>
+          <p className='text-base mt-6'>
+            RAVER Inc. ("RAVER," "we," "us," or "our") is committed to
+            protecting your privacy. This Privacy Statement explains how we
+            collect, use, disclose, and safeguard your personal information when
+            you use our services, including the RAVER.AI application
+            ("Application"). By using the Application, you consent to the
+            practices described in this Privacy Statement.
           </p>
-          <p className='mb-4 text-base'>
-            Morbi ac elit vitae eros interdum venenatis. Nullam eu feugiat
-            nulla. Suspendisse porttitor libero sit amet tincidunt mollis. Proin
-            in lectus non lorem dictum rutrum. Proin id metus felis. Nullam enim
-            nulla, ultrices in nisl eu, mattis elementum nisl. Cras in odio
-            lectus. Maecenas vel ipsum pulvinar, scelerisque tellus non,
-            sollicitudin neque.
-          </p>
-          <p className='mb-4 text-base'>
-            Praesent posuere arcu ac hendrerit pellentesque. Nulla a tempus
-            elit. Pellentesque habitant morbi tristique senectus et netus et
-            malesuada fames ac turpis egestas. Cras volutpat libero nec quam
-            finibus dictum. Nam bibendum neque eu nisl molestie condimentum.
-            Nulla facilisi. Praesent turpis enim, laoreet ac diam quis, luctus
-            tempor nisi.
-          </p>
-        </section>
+        </div>
 
-        <section id='privacy' className='mb-16'>
+        <section id='information' className='mb-16'>
           <h2 className='font-bold text-2xl md:text-3xl mb-6'>
-            2. Privacy Policy
+            1. Information We Collect
           </h2>
-          <p className='mb-4 text-base'>
-            Nullam tristique tortor id urna varius, vel accumsan nibh tempus.
-            Vivamus ut eros id dui cursus commodo. Quisque lobortis blandit
-            sapien, et pellentesque nisi luctus eget. Integer luctus quam in
-            lorem interdum, a condimentum nisi cursus. Praesent eget fermentum
-            augue.
+
+          <h3 className='font-bold text-xl mb-4'>
+            1.1 Information You Provide
+          </h3>
+          <p className='mb-6 text-base'>
+            When you use the Application, you may provide us with personal
+            information, including but not limited to your name, email address,
+            company information, and payment details.
           </p>
+
+          <h3 className='font-bold text-xl mb-4'>
+            1.2 Automatically Collected Information
+          </h3>
           <p className='mb-4 text-base'>
-            Mauris eget volutpat justo, quis bibendum sapien. Curabitur posuere,
-            magna quis pellentesque tincidunt, metus nisi rhoncus dolor, in
-            fermentum libero leo non mi. Integer purus nibh, pharetra ut erat
-            ut, iaculis tempus enim. Donec pharetra blandit felis. Curabitur
-            facilisis, libero vel hendrerit imperdiet, lectus eros varius justo,
-            sed sollicitudin est lorem quis tellus.
-          </p>
-          <p className='mb-4 text-base'>
-            Praesent sit amet mi iaculis, convallis mi in, tincidunt magna. Sed
-            euismod quis lacus vitae facilisis. Duis eu gravida purus. Aliquam
-            erat volutpat. Proin euismod orci et tempus finibus. Curabitur
-            aliquam dignissim leo, id bibendum tellus auctor a. Suspendisse
-            potenti. Integer dignissim finibus tempus. Donec tincidunt augue ac
-            nisl finibus, in bibendum nisl placerat.
-          </p>
-          <p className='mb-4 text-base'>
-            Donec id fermentum tellus. Nam sit amet malesuada eros, eget
-            malesuada ante. Nam laoreet ex lacus, ut tempor ligula consectetur
-            in. Aenean faucibus diam dolor, et pellentesque risus pharetra eu.
-            Proin rhoncus justo metus, at gravida ex condimentum vitae. Vivamus
-            a quam sem. Etiam ligula eros, accumsan non porta non, accumsan at
-            mauris.
+            We may collect certain information automatically when you use the
+            Application, such as your IP address, device information, usage
+            data, and cookies.
           </p>
         </section>
 
         <section id='usage' className='mb-16'>
           <h2 className='font-bold text-2xl md:text-3xl mb-6'>
-            3. Acceptable Usage
+            2. How We Use Your Information
           </h2>
           <p className='mb-4 text-base'>
-            Proin vulputate id augue a egestas. Nam gravida lobortis nulla, in
-            fermentum quam lobortis sed. Donec sit amet erat dignissim lectus
-            vehicula varius. Pellentesque vitae tristique erat. Praesent id
-            sagittis risus, ac pharetra leo. In scelerisque, mi vel vehicula
-            tincidunt, metus felis scelerisque neque, sed convallis arcu eros in
-            neque.
+            We use the information we collect for various purposes, including:
           </p>
-          <p className='mb-4 text-base'>
-            Praesent ut erat vel magna placerat sollicitudin. Etiam imperdiet
-            urna nec odio finibus luctus. Proin at dictum metus, vel aliquet ex.
-            Sed id facilisis sem. Cras et purus tristique, faucibus lorem
-            dapibus, sagittis lacus. Quisque ut purus non ante facilisis
-            imperdiet. Mauris sed ante magna. Donec vehicula, leo ut faucibus
-            egestas, magna purus porttitor nulla, et aliquam est enim at odio.
-          </p>
-          <p className='mb-4 text-base'>
-            Maecenas tempus consequat enim vitae rhoncus. Etiam mauris tortor,
-            feugiat quis aliquam nec, fermentum sed diam. Aliquam vehicula
-            vestibulum risus, at iaculis elit. Praesent faucibus orci in ligula
-            volutpat, vitae molestie urna tincidunt. Suspendisse id nisi ut erat
-            tempus condimentum at at mauris. Vestibulum finibus est non nisi
-            dignissim molestie.
-          </p>
+
+          <ul className='list-none ml-4 mb-6'>
+            <li className='mb-2 text-base'>
+              a. Providing and maintaining the Application.
+            </li>
+            <li className='mb-2 text-base'>
+              b. Personalizing your experience.
+            </li>
+            <li className='mb-2 text-base'>
+              c. Processing transactions and payments.
+            </li>
+            <li className='mb-2 text-base'>
+              d. Responding to your requests, comments, or questions.
+            </li>
+            <li className='mb-2 text-base'>
+              e. Improving the Application and our services.
+            </li>
+            <li className='mb-2 text-base'>
+              f. Ensuring compliance with legal and regulatory requirements.
+            </li>
+          </ul>
         </section>
 
-        <section id='account' className='mb-16'>
+        <section id='sharing' className='mb-16'>
           <h2 className='font-bold text-2xl md:text-3xl mb-6'>
-            4. Account Management
+            3. How We Share Your Information
           </h2>
           <p className='mb-4 text-base'>
-            Duis sed sapien pulvinar, ultrices risus in, tempus est. Maecenas eu
-            lectus mattis, fermentum eros ac, pharetra orci. In hendrerit magna
-            nec quam convallis, non elementum mauris tristique. Vestibulum
-            lacinia interdum mauris vel vestibulum. In ullamcorper vehicula
-            hendrerit.
+            We may share your personal information with:
           </p>
-          <p className='mb-4 text-base'>
-            Nulla lacinia nisi eu magna pulvinar ultricies. Vestibulum sed lorem
-            nec ex vulputate auctor eget a tellus. Phasellus id erat nibh.
-            Aliquam erat volutpat. Ut eu sagittis nibh, at sagittis magna.
-            Vestibulum pulvinar magna non ante vulputate, non rutrum sapien
-            molestie. In hac habitasse platea dictumst. In justo est, tempus in
-            nisi nec, molestie mattis felis.
-          </p>
-          <p className='mb-4 text-base'>
-            Fusce ac bibendum tellus. Aliquam erat volutpat. Nulla vel ligula
-            metus. Donec elit risus, fermentum et iaculis a, bibendum non
-            libero. Ut convallis justo sit amet quam congue interdum. Sed lorem
-            diam, laoreet quis tempus id, porttitor vitae arcu. Maecenas commodo
-            magna ex, at commodo orci lobortis non. Nulla at tempus quam.
-            Vestibulum vitae venenatis lorem. Praesent nec sapien erat.
-          </p>
+
+          <ul className='list-none ml-4 mb-6'>
+            <li className='mb-2 text-base'>
+              a. Service providers and partners who assist us in operating the
+              Application.
+            </li>
+            <li className='mb-2 text-base'>
+              b. Legal and regulatory authorities when required by law.
+            </li>
+            <li className='mb-2 text-base'>
+              c. Third parties in connection with a merger, acquisition, or sale
+              of assets.
+            </li>
+          </ul>
         </section>
 
         <section id='rights' className='mb-16'>
           <h2 className='font-bold text-2xl md:text-3xl mb-6'>
-            5. Intellectual Property Rights
+            4. Your Rights and Choices
           </h2>
           <p className='mb-4 text-base'>
-            Fusce quis orci ac tortor pretium aliquet eu eget tortor. Curabitur
-            pharetra justo non est ultrices, eu ultrices mauris sodales. In hac
-            habitasse platea dictumst. Aliquam erat volutpat. In hac habitasse
-            platea dictumst. Vestibulum vel porta nisi. Aliquam in mauris
-            consectetur, sodales nulla eu, maximus sem. Aliquam dapibus, magna
-            ut porttitor pretium, lectus eros volutpat libero, eu bibendum
-            tortor est ac enim.
+            You have certain rights regarding your personal information,
+            including:
           </p>
+
+          <ul className='list-none ml-4 mb-6'>
+            <li className='mb-2 text-base'>
+              a. Access: You can request access to the personal information we
+              hold about you.
+            </li>
+            <li className='mb-2 text-base'>
+              b. Correction: You can request corrections to inaccurate or
+              incomplete data.
+            </li>
+            <li className='mb-2 text-base'>
+              c. Deletion: You can request the deletion of your personal
+              information.
+            </li>
+            <li className='mb-2 text-base'>
+              d. Data Portability: You can request a copy of your data in a
+              structured, machine-readable format.
+            </li>
+          </ul>
+
           <p className='mb-4 text-base'>
-            Nulla venenatis, felis a ultricies pretium, sem metus semper erat,
-            quis iaculis elit tortor ut nulla. Donec vehicula pretium congue.
-            Cras nibh nulla, aliquam eget augue at, tincidunt ultrices nulla.
-            Mauris venenatis pellentesque imperdiet. Nulla facilisi. Ut at
-            maximus magna. Cras tempor orci ligula, at convallis turpis tempus
-            quis. Nam a tincidunt arcu, non venenatis massa. Vestibulum ante
-            ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-            curae.
-          </p>
-          <p className='mb-4 text-base'>
-            Quisque gravida, magna eget pulvinar condimentum, velit risus
-            facilisis sapien, et tempus ipsum eros ac orci. Nam malesuada
-            feugiat urna. Aliquam porta ipsum in sollicitudin cursus.
-            Pellentesque vehicula lacus eu lorem lobortis, nec sagittis massa
-            lacinia. Curabitur in nulla sit amet risus tempus tempus et vitae
-            eros. Etiam condimentum non orci a convallis. Maecenas nec nulla id
-            justo semper vestibulum vitae ultrices nibh.
-          </p>
-          <p className='mb-4 text-base'>
-            Pellentesque at risus in sem pretium feugiat. Nulla et iaculis
-            purus. Suspendisse et nisi at sem efficitur semper. Donec sed ligula
-            a lorem rutrum aliquam eget nec lorem. Maecenas sed lorem quis odio
-            aliquam blandit. Aenean quis facilisis nulla. Vivamus sed pulvinar
-            dui. Etiam sagittis lacus nec enim ultricies suscipit. Nam
-            consectetur urna quam, vel interdum tellus hendrerit in.
+            To exercise these rights or for any privacy-related inquiries,
+            please contact us at info@raver.ai.
           </p>
         </section>
-      </main>
+
+        <section id='additional' className='mb-16'>
+          <h2 className='font-bold text-2xl md:text-3xl mb-6'>5. Security</h2>
+          <p className='mb-6 text-base'>
+            We employ reasonable administrative, technical, and physical
+            measures to protect your personal information from unauthorized
+            access, disclosure, alteration, or destruction.
+          </p>
+
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            6. Social Media Authorization
+          </h2>
+          <p className='mb-6 text-base'>
+            When you authorize a social media network (e.g. Instagram, Facebook,
+            Twitter, etc.) it may store cookies or other data. Your interactions
+            with the authorization feature are governed by the privacy policy of
+            the authorized social media network and Raver Inc. shall not be held
+            liable for any unlawful data processing activities performed. At any
+            time you can revoke the Apps access to your social accounts by
+            unlinking via the settings page in the application.
+          </p>
+
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            7. International Data Transfers
+          </h2>
+          <p className='mb-6 text-base'>
+            Your personal information may be stored and processed in the United
+            States or other countries. We ensure that adequate data protection
+            measures are in place when transferring data outside of the European
+            Economic Area (EEA).
+          </p>
+
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            8. Changes to this Privacy Statement
+          </h2>
+          <p className='mb-6 text-base'>
+            We may update this Privacy Statement to reflect changes in our
+            practices or for other operational, legal, or regulatory reasons. We
+            will notify you of any material changes by posting the updated
+            Privacy Statement on our website or through other appropriate means.
+          </p>
+
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            9. Contact Us
+          </h2>
+          <p className='mb-6 text-base'>
+            If you have questions, concerns, or requests regarding your privacy
+            or this Privacy Statement, please contact us at info@raver.ai.
+          </p>
+        </section>
+      </div>
     </div>
   )
 }

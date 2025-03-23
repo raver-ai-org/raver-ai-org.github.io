@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import showcaseVideo from '../assets/journey-of-ads.webm'
 import AboutUsSection from '../components/AboutUsSection'
 import AdvertisingSection from '../components/AdvertisingSection'
 import ElevateBrandSection from '../components/ElevateBrandSection'
+import FullWidthVideoSection from '../components/FullVideoSection'
 import HeroSection from '../components/HeroSection'
 import TeamSection from '../components/TeamSection'
 
@@ -15,6 +17,7 @@ export default function Home() {
   const advertisingRef = useRef(null)
   const elevateRef = useRef(null)
   const teamRef = useRef(null)
+  const videoRef = useRef(null)
 
   useEffect(() => {
     if (location.hash) {
@@ -27,6 +30,7 @@ export default function Home() {
         advertising: advertisingRef,
         work: elevateRef,
         team: teamRef,
+        video: videoRef,
       }
 
       setTimeout(() => {
@@ -61,6 +65,11 @@ export default function Home() {
       <HeroSection />
       <AdvertisingSection />
       <AboutUsSection />
+      <FullWidthVideoSection
+        videoSrc={showcaseVideo}
+        id='video'
+        // Add a poster image
+      />
       <ElevateBrandSection />
       <TeamSection />
     </div>

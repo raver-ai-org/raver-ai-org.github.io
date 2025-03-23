@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const TermsOfUsePage = () => {
-  const [activeSection, setActiveSection] = useState('terms')
+  const [activeSection, setActiveSection] = useState('acceptance')
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -29,7 +29,13 @@ const TermsOfUsePage = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['terms', 'privacy', 'usage', 'account', 'rights']
+      const sections = [
+        'acceptance',
+        'use',
+        'billing',
+        'intellectual',
+        'privacy',
+      ]
       const scrollPosition = window.scrollY + (isMobile ? 150 : 100)
 
       let currentSection = sections[0]
@@ -57,18 +63,18 @@ const TermsOfUsePage = () => {
     handleScroll()
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [isMobile])
+  }, [isMobile, activeSection])
 
   const navigationItems = [
-    { id: 'terms', label: 'Terms' },
-    { id: 'privacy', label: 'Privacy' },
-    { id: 'usage', label: 'Usage' },
-    { id: 'account', label: 'Account' },
-    { id: 'rights', label: 'Rights' },
+    { id: 'acceptance', label: 'Acceptance of Terms' },
+    { id: 'use', label: 'Use of RAVER' },
+    { id: 'billing', label: 'Billing' },
+    { id: 'intellectual', label: 'Intellectual Property' },
+    { id: 'privacy', label: 'Privacy & More' },
   ]
 
   return (
-    <div className='flex flex-col md:flex-row min-h-screen w-full pt-16  bg-[#262832]'>
+    <div className='flex flex-col md:flex-row min-h-screen w-full pt-16 p-8 md:p-16 bg-[#262832]'>
       <nav
         className={`
         ${isMobile ? 'w-full' : 'w-[320px] h-auto sticky top-[100px]'} 
@@ -114,175 +120,253 @@ const TermsOfUsePage = () => {
         </div>
       </nav>
 
-      <main className='flex-1 p-6 md:p-12 max-w-[90%] md:max-w-[90%] mx-auto bg-[#262832] rounded-[48px] mt-10 mb-10 mr-10 text-[#C3969A]'>
-        <section id='terms' className='mb-16'>
+      <div className='flex-1 md:p-12 md:pl-20 max-w-[90%] mt-16 md:mt-0 mx-auto bg-[#262832] rounded-[48px] text-[#C3969A]'>
+        <div className='mb-12'>
+          <h1 className='font-bold text-3xl md:text-4xl mb-4'>Terms of Use</h1>
+          <p className='text-base'>Effective Date: April 15, 2024</p>
+          <p className='text-base mt-6 font-semibold'>
+            IMPORTANT NOTICE: PLEASE READ CAREFULLY BEFORE USING RAVER
+          </p>
+          <p className='text-base mt-4'>
+            These Terms of Use ("Terms") govern your use of RAVER, a product
+            developed and operated by RAVER Inc. ("RAVER," "we," "us," or
+            "our"). By accessing or using RAVER, you ("you" or "User") agree to
+            comply with and be bound by these Terms. If you do not agree to
+            these Terms, please do not use RAVER.
+          </p>
+        </div>
+
+        <section id='acceptance' className='mb-16'>
           <h2 className='font-bold text-2xl md:text-3xl mb-6'>
-            1. Terms and Conditions
+            1. Acceptance of Terms
           </h2>
-          <p className='mb-4 text-base '>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            condimentum tortor sem, in semper nisl bibendum eu. Duis tempor
-            lorem nibh, quis pellentesque mauris faucibus a. Ut efficitur mollis
-            metus at sollicitudin. Aenean consectetur maximus pulvinar. Nam non
-            egestas lorem, vitae sagittis elit. Cras vel eros id ipsum semper
-            mollis.
+          <p className='mb-4 text-base'>
+            By using RAVER, you acknowledge that you have read, understood, and
+            agree to be bound by these Terms, including any updates or
+            modifications that may be made from time to time. RAVER reserves the
+            right to change or modify these Terms at any time without prior
+            notice. Your continued use of RAVER after such changes will
+            constitute your acceptance of the revised Terms.
           </p>
-          <p className='mb-4 text-base '>
-            Morbi ac elit vitae eros interdum venenatis. Nullam eu feugiat
-            nulla. Suspendisse porttitor libero sit amet tincidunt mollis. Proin
-            in lectus non lorem dictum rutrum. Proin id metus felis. Nullam enim
-            nulla, ultrices in nisl eu, mattis elementum nisl. Cras in odio
-            lectus. Maecenas vel ipsum pulvinar, scelerisque tellus non,
-            sollicitudin neque.
+        </section>
+
+        <section id='use' className='mb-16'>
+          <h2 className='font-bold text-2xl md:text-3xl mb-6'>
+            2. Use of RAVER
+          </h2>
+          <h3 className='font-bold text-xl mb-4'>2.1 Eligibility</h3>
+          <p className='mb-6 text-base'>
+            You must be at least 18 years old or have the necessary legal
+            capacity in your jurisdiction to use RAVER. By using RAVER, you
+            represent and warrant that you meet these eligibility requirements.
           </p>
-          <p className='mb-4 text-base '>
-            Praesent posuere arcu ac hendrerit pellentesque. Nulla a tempus
-            elit. Pellentesque habitant morbi tristique senectus et netus et
-            malesuada fames ac turpis egestas. Cras volutpat libero nec quam
-            finibus dictum. Nam bibendum neque eu nisl molestie condimentum.
-            Nulla facilisi. Praesent turpis enim, laoreet ac diam quis, luctus
-            tempor nisi.
+
+          <h3 className='font-bold text-xl mb-4'>2.2 Prohibited Activities</h3>
+          <p className='mb-2 text-base'>You agree not to:</p>
+          <ul className='list-none ml-4 mb-6'>
+            <li className='mb-2 text-base'>
+              a. Use RAVER for any unlawful or unauthorized purpose.
+            </li>
+            <li className='mb-2 text-base'>
+              b. Violate any applicable laws or regulations.
+            </li>
+            <li className='mb-2 text-base'>
+              c. Attempt to reverse engineer, decompile, or disassemble any part
+              of RAVER.
+            </li>
+            <li className='mb-2 text-base'>
+              d. Use RAVER to create, distribute, or promote any content that is
+              unlawful, harmful, threatening, abusive, harassing, defamatory,
+              vulgar, obscene, invasive of another's privacy, hateful, or
+              racially, ethnically, or otherwise objectionable.
+            </li>
+            <li className='mb-2 text-base'>
+              e. Impersonate any person or entity or falsely claim an
+              affiliation with any third party.
+            </li>
+            <li className='mb-2 text-base'>
+              f. Share your RAVER account credentials with others or allow
+              unauthorized access to your account.
+            </li>
+          </ul>
+
+          <h3 className='font-bold text-xl mb-4'>
+            2.3 Content Generated by RAVER
+          </h3>
+          <p className='mb-4 text-base'>
+            RAVER uses generative AI to create marketing campaigns based on the
+            input provided by Users. You understand and acknowledge that the
+            content generated by RAVER is automated and may not always be
+            accurate, complete, or suitable for your specific needs. You are
+            solely responsible for reviewing and editing the content generated
+            by RAVER to ensure its accuracy and compliance with applicable laws
+            and regulations.
+          </p>
+        </section>
+
+        <section id='billing' className='mb-16'>
+          <h2 className='font-bold text-2xl md:text-3xl mb-6'>3. Billing</h2>
+          <p className='mb-6 text-base'>
+            RAVER offers a credit-based service. Users may receive free credits
+            occasionally, including upon signing up. Details about RAVER's
+            subscription offerings and pricing, which may vary by location, are
+            available on our website. Pricing is determined based on the billing
+            information provided at the time of purchase.
+          </p>
+
+          <h3 className='font-bold text-xl mb-4'>
+            3.1 Subscriptions and Renewals
+          </h3>
+          <p className='mb-6 text-base'>
+            You have the option to sign up for either a monthly or annual
+            subscription. Subscriptions auto-renew according to the selected
+            frequency (monthly or annually) until canceled by the user.
+            Subscription cancellations can be made at any time but do not
+            warrant a refund or credit for any previously billed amounts.
+          </p>
+
+          <h3 className='font-bold text-xl mb-4'>3.2 Subscription Credit</h3>
+          <p className='mb-6 text-base'>
+            At the start of each subscription cycle, beginning on the purchase
+            date, subscription credits are replenished. Unused credits do not
+            carry over to the subsequent month. Credits are consumed through
+            various activities within RAVER, such as posting to social media or
+            downloading campaigns.
+          </p>
+
+          <h3 className='font-bold text-xl mb-4'>3.3 Cancellation</h3>
+          <p className='mb-6 text-base'>
+            Subscriptions can be canceled at any point via the account settings.
+            Upon cancellation, no refunds will be issued for previously paid
+            fees, and any due charges will become immediately payable.
+          </p>
+
+          <h3 className='font-bold text-xl mb-4'>3.4 Free Trials and Pilots</h3>
+          <p className='mb-6 text-base'>
+            RAVER may provide free trials or pilots, offering a preview of new
+            features. The eligibility and duration of these trials or pilots are
+            at RAVER's discretion.
+          </p>
+
+          <h3 className='font-bold text-xl mb-4'>3.5 Changes to Pricing</h3>
+          <p className='mb-4 text-base'>
+            RAVER reserves the right to modify pricing at any time. For
+            subscribers, any price changes will take effect at the next renewal
+            period or thirty (30) days post-notification, whichever is later.
+          </p>
+        </section>
+
+        <section id='intellectual' className='mb-16'>
+          <h2 className='font-bold text-2xl md:text-3xl mb-6'>
+            4. Intellectual Property
+          </h2>
+          <h3 className='font-bold text-xl mb-4'>4.1 Ownership</h3>
+          <p className='mb-6 text-base'>
+            RAVER and all related intellectual property rights, including but
+            not limited to patents, copyrights, trademarks, and trade secrets,
+            are owned by RAVER Inc. You do not acquire any ownership rights in
+            RAVER or its content.
+          </p>
+
+          <h3 className='font-bold text-xl mb-4'>4.2 User-Generated Content</h3>
+          <p className='mb-4 text-base'>
+            Any content or input you provide to RAVER remains your intellectual
+            property. By using RAVER, you grant RAVER Inc. a worldwide,
+            non-exclusive, royalty-free license to use, reproduce, modify,
+            adapt, publish, translate, and distribute the content you provide
+            for the purpose of providing and improving RAVER.
           </p>
         </section>
 
         <section id='privacy' className='mb-16'>
-          <h2 className='font-bold text-2xl md:text-3xl mb-6'>
-            2. Privacy Policy
-          </h2>
-          <p className='mb-4 text-base '>
-            Nullam tristique tortor id urna varius, vel accumsan nibh tempus.
-            Vivamus ut eros id dui cursus commodo. Quisque lobortis blandit
-            sapien, et pellentesque nisi luctus eget. Integer luctus quam in
-            lorem interdum, a condimentum nisi cursus. Praesent eget fermentum
-            augue.
+          <h2 className='font-bold text-2xl md:text-3xl mb-6'>5. Privacy</h2>
+          <p className='mb-6 text-base'>
+            RAVER's Privacy Policy governs the collection, use, and disclosure
+            of your personal information. By using RAVER, you consent to the
+            practices described in the Privacy Policy, which can be found on the
+            RAVER website.
           </p>
-          <p className='mb-4 text-base '>
-            Mauris eget volutpat justo, quis bibendum sapien. Curabitur posuere,
-            magna quis pellentesque tincidunt, metus nisi rhoncus dolor, in
-            fermentum libero leo non mi. Integer purus nibh, pharetra ut erat
-            ut, iaculis tempus enim. Donec pharetra blandit felis. Curabitur
-            facilisis, libero vel hendrerit imperdiet, lectus eros varius justo,
-            sed sollicitudin est lorem quis tellus.
-          </p>
-          <p className='mb-4 text-base '>
-            Praesent sit amet mi iaculis, convallis mi in, tincidunt magna. Sed
-            euismod quis lacus vitae facilisis. Duis eu gravida purus. Aliquam
-            erat volutpat. Proin euismod orci et tempus finibus. Curabitur
-            aliquam dignissim leo, id bibendum tellus auctor a. Suspendisse
-            potenti. Integer dignissim finibus tempus. Donec tincidunt augue ac
-            nisl finibus, in bibendum nisl placerat.
-          </p>
-          <p className='mb-4 text-base '>
-            Donec id fermentum tellus. Nam sit amet malesuada eros, eget
-            malesuada ante. Nam laoreet ex lacus, ut tempor ligula consectetur
-            in. Aenean faucibus diam dolor, et pellentesque risus pharetra eu.
-            Proin rhoncus justo metus, at gravida ex condimentum vitae. Vivamus
-            a quam sem. Etiam ligula eros, accumsan non porta non, accumsan at
-            mauris.
-          </p>
-        </section>
 
-        <section id='usage' className='mb-16'>
-          <h2 className='font-bold text-2xl md:text-3xl mb-6'>
-            3. Acceptable Usage
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            6. Indemnification
           </h2>
-          <p className='mb-4 text-base '>
-            Proin vulputate id augue a egestas. Nam gravida lobortis nulla, in
-            fermentum quam lobortis sed. Donec sit amet erat dignissim lectus
-            vehicula varius. Pellentesque vitae tristique erat. Praesent id
-            sagittis risus, ac pharetra leo. In scelerisque, mi vel vehicula
-            tincidunt, metus felis scelerisque neque, sed convallis arcu eros in
-            neque.
+          <p className='mb-6 text-base'>
+            You agree to indemnify, defend, and hold harmless RAVER Inc., its
+            officers, directors, employees, agents, licensors, suppliers, and
+            any third-party information providers from and against all losses,
+            expenses, damages, and costs, including reasonable attorneys' fees,
+            resulting from any violation of this Agreement by you or misuse of
+            the Service.
           </p>
-          <p className='mb-4 text-base '>
-            Praesent ut erat vel magna placerat sollicitudin. Etiam imperdiet
-            urna nec odio finibus luctus. Proin at dictum metus, vel aliquet ex.
-            Sed id facilisis sem. Cras et purus tristique, faucibus lorem
-            dapibus, sagittis lacus. Quisque ut purus non ante facilisis
-            imperdiet. Mauris sed ante magna. Donec vehicula, leo ut faucibus
-            egestas, magna purus porttitor nulla, et aliquam est enim at odio.
-          </p>
-          <p className='mb-4 text-base '>
-            Maecenas tempus consequat enim vitae rhoncus. Etiam mauris tortor,
-            feugiat quis aliquam nec, fermentum sed diam. Aliquam vehicula
-            vestibulum risus, at iaculis elit. Praesent faucibus orci in ligula
-            volutpat, vitae molestie urna tincidunt. Suspendisse id nisi ut erat
-            tempus condimentum at at mauris. Vestibulum finibus est non nisi
-            dignissim molestie.
-          </p>
-        </section>
 
-        <section id='account' className='mb-16'>
-          <h2 className='font-bold text-2xl md:text-3xl mb-6'>
-            4. Account Management
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            7. Termination
           </h2>
-          <p className='mb-4 text-base '>
-            Duis sed sapien pulvinar, ultrices risus in, tempus est. Maecenas eu
-            lectus mattis, fermentum eros ac, pharetra orci. In hendrerit magna
-            nec quam convallis, non elementum mauris tristique. Vestibulum
-            lacinia interdum mauris vel vestibulum. In ullamcorper vehicula
-            hendrerit.
+          <p className='mb-6 text-base'>
+            RAVER reserves the right to suspend or terminate your access to
+            RAVER at any time and for any reason, including if you violate these
+            Terms or engage in conduct that RAVER deems harmful to its users or
+            its business.
           </p>
-          <p className='mb-4 text-base '>
-            Nulla lacinia nisi eu magna pulvinar ultricies. Vestibulum sed lorem
-            nec ex vulputate auctor eget a tellus. Phasellus id erat nibh.
-            Aliquam erat volutpat. Ut eu sagittis nibh, at sagittis magna.
-            Vestibulum pulvinar magna non ante vulputate, non rutrum sapien
-            molestie. In hac habitasse platea dictumst. In justo est, tempus in
-            nisi nec, molestie mattis felis.
-          </p>
-          <p className='mb-4 text-base '>
-            Fusce ac bibendum tellus. Aliquam erat volutpat. Nulla vel ligula
-            metus. Donec elit risus, fermentum et iaculis a, bibendum non
-            libero. Ut convallis justo sit amet quam congue interdum. Sed lorem
-            diam, laoreet quis tempus id, porttitor vitae arcu. Maecenas commodo
-            magna ex, at commodo orci lobortis non. Nulla at tempus quam.
-            Vestibulum vitae venenatis lorem. Praesent nec sapien erat.
-          </p>
-        </section>
 
-        <section id='rights' className='mb-16'>
-          <h2 className='font-bold text-2xl md:text-3xl mb-6'>
-            5. Intellectual Property Rights
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            8. Disclaimer of Warranties
           </h2>
-          <p className='mb-4 text-base '>
-            Fusce quis orci ac tortor pretium aliquet eu eget tortor. Curabitur
-            pharetra justo non est ultrices, eu ultrices mauris sodales. In hac
-            habitasse platea dictumst. Aliquam erat volutpat. In hac habitasse
-            platea dictumst. Vestibulum vel porta nisi. Aliquam in mauris
-            consectetur, sodales nulla eu, maximus sem. Aliquam dapibus, magna
-            ut porttitor pretium, lectus eros volutpat libero, eu bibendum
-            tortor est ac enim.
+          <p className='mb-6 text-base'>
+            RAVER IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF
+            ANY KIND, WHETHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT
+            PERMITTED BY APPLICABLE LAW, RAVER INC. DISCLAIMS ALL WARRANTIES,
+            INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+            MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+            NON-INFRINGEMENT.
           </p>
-          <p className='mb-4 text-base '>
-            Nulla venenatis, felis a ultricies pretium, sem metus semper erat,
-            quis iaculis elit tortor ut nulla. Donec vehicula pretium congue.
-            Cras nibh nulla, aliquam eget augue at, tincidunt ultrices nulla.
-            Mauris venenatis pellentesque imperdiet. Nulla facilisi. Ut at
-            maximus magna. Cras tempor orci ligula, at convallis turpis tempus
-            quis. Nam a tincidunt arcu, non venenatis massa. Vestibulum ante
-            ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-            curae.
+
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            9. Limitation of Liability
+          </h2>
+          <p className='mb-6 text-base'>
+            TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, RAVER INC. SHALL
+            NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL,
+            OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER
+            INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL,
+            OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR IN CONNECTION WITH
+            YOUR USE OF RAVER, REGARDLESS OF THE LEGAL THEORY UNDER WHICH SUCH
+            LIABILITY IS ASSERTED, EVEN IF RAVER INC. HAS BEEN ADVISED OF THE
+            POSSIBILITY OF SUCH DAMAGES.
           </p>
-          <p className='mb-4 text-base '>
-            Quisque gravida, magna eget pulvinar condimentum, velit risus
-            facilisis sapien, et tempus ipsum eros ac orci. Nam malesuada
-            feugiat urna. Aliquam porta ipsum in sollicitudin cursus.
-            Pellentesque vehicula lacus eu lorem lobortis, nec sagittis massa
-            lacinia. Curabitur in nulla sit amet risus tempus tempus et vitae
-            eros. Etiam condimentum non orci a convallis. Maecenas nec nulla id
-            justo semper vestibulum vitae ultrices nibh.
+
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            10. Governing Law
+          </h2>
+          <p className='mb-6 text-base'>
+            These Terms are governed by and construed in accordance with the
+            laws of the state or country where RAVER Inc. is headquartered,
+            without regard to its conflict of law principles.
           </p>
-          <p className='mb-4 text-base '>
-            Pellentesque at risus in sem pretium feugiat. Nulla et iaculis
-            purus. Suspendisse et nisi at sem efficitur semper. Donec sed ligula
-            a lorem rutrum aliquam eget nec lorem. Maecenas sed lorem quis odio
-            aliquam blandit. Aenean quis facilisis nulla. Vivamus sed pulvinar
-            dui. Etiam sagittis lacus nec enim ultricies suscipit. Nam
-            consectetur urna quam, vel interdum tellus hendrerit in.
+
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            11. Contact Information
+          </h2>
+          <p className='mb-6 text-base'>
+            If you have any questions or concerns about these Terms, please
+            contact RAVER Inc. at info@raver.ai.
+          </p>
+
+          <h2 className='font-bold text-2xl md:text-3xl mb-6 mt-12'>
+            12. Entire Agreement
+          </h2>
+          <p className='mb-6 text-base'>
+            These Terms constitute the entire agreement between you and RAVER
+            Inc. with respect to your use of RAVER and supersede all prior
+            agreements and understandings.
+          </p>
+
+          <p className='mb-4 text-base italic mt-8'>
+            By using RAVER, you acknowledge that you have read, understood, and
+            agree to these Terms.
           </p>
         </section>
-      </main>
+      </div>
     </div>
   )
 }

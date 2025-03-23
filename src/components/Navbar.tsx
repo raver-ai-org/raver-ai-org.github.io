@@ -87,7 +87,7 @@ const Navbar = () => {
   return (
     <>
       <nav className='fixed top-0 left-0 right-0 z-50 w-full bg-white shadow-sm'>
-        <div className='max-w-screen-2xl mx-auto px-4 md:px-16'>
+        <div className='max-w-screen-2xl mx-auto px-2 sm:px-4 md:px-6 lg:px-12 xl:px-16'>
           <div className='flex items-center justify-between h-20'>
             <div className='flex-shrink-0'>
               <Link
@@ -100,14 +100,18 @@ const Navbar = () => {
                   }
                 }}
               >
-                <img src={logo} alt='Raver Logo' className='h-10' />
+                <img
+                  src={logo}
+                  alt='Raver Logo'
+                  className='h-8 md:h-9 lg:h-10'
+                />
               </Link>
             </div>
 
-            <div className='hidden md:flex items-center justify-center space-x-10'>
+            <div className='hidden md:flex items-center justify-center space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-10'>
               <Link
                 to={isHomePage ? '#home' : '/#home'}
-                className={`uppercase font-normal text-lg transition-all ${
+                className={`uppercase font-normal text-base xl:text-lg transition-all whitespace-nowrap ${
                   activeSection === 'home' && isHomePage
                     ? 'border-b border-[#272A34] text-[#272A34] pb-2'
                     : 'text-[#C3969A] pb-2 border-b border-transparent'
@@ -123,7 +127,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to={isHomePage ? '#about' : '/#about'}
-                className={`uppercase font-normal text-lg transition-all ${
+                className={`uppercase font-normal text-base xl:text-lg transition-all whitespace-nowrap ${
                   activeSection === 'about' && isHomePage
                     ? 'border-b border-[#272A34] text-[#272A34] pb-2'
                     : 'text-[#C3969A] pb-2 border-b border-transparent'
@@ -135,11 +139,11 @@ const Navbar = () => {
                   }
                 }}
               >
-                About Us
+                About
               </Link>
               <Link
                 to={isHomePage ? '#work' : '/#work'}
-                className={`uppercase font-normal text-lg transition-all ${
+                className={`uppercase font-normal text-base xl:text-lg transition-all whitespace-nowrap ${
                   activeSection === 'work' && isHomePage
                     ? 'border-b border-[#272A34] text-[#272A34] pb-2'
                     : 'text-[#C3969A] pb-2 border-b border-transparent'
@@ -151,11 +155,11 @@ const Navbar = () => {
                   }
                 }}
               >
-                Our Work
+                Work
               </Link>
               <Link
                 to={isHomePage ? '#team' : '/#team'}
-                className={`uppercase font-normal text-lg transition-all ${
+                className={`uppercase font-normal text-base xl:text-lg transition-all whitespace-nowrap ${
                   activeSection === 'team' && isHomePage
                     ? 'border-b border-[#272A34] text-[#272A34] pb-2'
                     : 'text-[#C3969A] pb-2 border-b border-transparent'
@@ -167,10 +171,10 @@ const Navbar = () => {
                   }
                 }}
               >
-                Meet Our Team
+                Team
               </Link>
             </div>
-            <div className='flex gap-8'>
+            <div className='flex gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8'>
               <div className='md:hidden flex items-center justify-center'>
                 <button
                   onClick={toggleMenu}
@@ -180,14 +184,18 @@ const Navbar = () => {
                   {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
               </div>
-              <ConnectWithUs variant='accent' iconOnlyMobile />
+              <ConnectWithUs
+                variant='accent'
+                iconOnlyMobile
+                className='scale-75 sm:scale-80 md:scale-85 lg:scale-90 xl:scale-100'
+              />
             </div>
           </div>
         </div>
 
         {isMenuOpen && (
           <div className='fixed inset-0 md:hidden bg-white z-50 flex flex-col'>
-            <div className='flex justify-between items-center p-4 border-b border-gray-200 h-20'>
+            <div className='flex justify-between items-center p-2 border-b border-gray-200 h-20'>
               <div className='flex-shrink-0'>
                 <Link
                   to='/'
@@ -200,7 +208,7 @@ const Navbar = () => {
                     }
                   }}
                 >
-                  <img src={logo} alt='Raver Logo' className='h-10' />
+                  <img src={logo} alt='Raver Logo' className='h-8 sm:h-9' />
                 </Link>
               </div>
               <button
