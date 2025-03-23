@@ -17,7 +17,7 @@ const AboutUsSection = () => {
     {
       src: candyGirl,
       caption:
-        'Candy girl’ (Cosmetic campaign) is a sleek, modern cosmetic video redefining beauty with innovation and style',
+        '‘Candy girl’(Cosmetic campaign) is a sleek, modern cosmetic video redefining beauty with innovation and style.',
     },
     {
       src: whoOwnsUs,

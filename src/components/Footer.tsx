@@ -75,11 +75,11 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className='flex flex-col justify-start sm:justify-center lg:mr-36'>
+            <div className='flex flex-col justify-start lg:mr-36'>
               <div className='flex items-start lg:items-center justify-start p-2 h-[48px]'>
-                <h3 className='text-[#c3969a] font-poppins text-base sm:text-lg leading-[27px]'>
+                <p className='text-[#c3969a]  text-base sm:text-lg leading-[27px] font-poppins'>
                   Follow Us
-                </h3>
+                </p>
               </div>
               {/* <div className='flex items-start lg:items-center justify-start lg:justify-center px-2 h-[40px]'>
                 <a
