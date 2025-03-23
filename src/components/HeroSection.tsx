@@ -9,13 +9,14 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import hero1 from '../assets/hero-1.webp'
 import hero2 from '../assets/hero-2.webp'
 import hero3 from '../assets/hero-3.webp'
+import hero4 from '../assets/hero-4.webp'
 import MoreIcon from '../icons/MoreIcon'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type SwiperRef = any
 
 const HeroSection = () => {
-  const backgroundImages = [hero1, hero2, hero3]
+  const backgroundImages = [hero1, hero2, hero3, hero4]
   const titleRef = useRef(null)
   const descriptionRef = useRef(null)
   const buttonRef = useRef(null)
@@ -141,7 +142,7 @@ const HeroSection = () => {
           }}
         ></div>
 
-        <div className='custom-bullets absolute z-50 flex gap-4 right-6 bottom-8 md:right-8 md:bottom-12 lg:right-16 lg:bottom-16 2xl:right-[104px]'>
+        <div className='custom-bullets absolute z-50 flex gap-4 right-6 bottom-12 md:right-8 md:bottom-12 lg:right-16 lg:bottom-16 2xl:right-[104px]'>
           {backgroundImages.map((_, index) => (
             <button
               key={index}
@@ -156,7 +157,7 @@ const HeroSection = () => {
 
         <div
           id='home'
-          className='absolute inset-x-0 bottom-0 top-auto md:inset-0 z-10 flex flex-col justify-end md:justify-start items-start px-6 pb-7 md:pb-0 md:pt-16 sm:px-10 md:px-12 lg:px-8 max-w-7xl 2xl:max-w-[1865px] mx-auto pointer-events-none'
+          className='absolute inset-x-0 bottom-0 top-auto md:inset-0 z-10 flex flex-col justify-end md:justify-start items-start px-6 pb-11 md:pb-0 md:pt-16 sm:px-10 md:px-12 lg:px-8 max-w-7xl 2xl:max-w-[1865px] mx-auto pointer-events-none'
         >
           <div className='max-w-[400px]'>
             <h1
