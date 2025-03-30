@@ -159,7 +159,7 @@ const TeamSection: React.FC = () => {
                     </h3>
 
                     <p className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 sm:leading-8'>
-                      Chief of storytelling and Content
+                      Chief Director of Story & Content
                     </p>
                   </div>
 
