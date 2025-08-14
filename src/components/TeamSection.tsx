@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import carolyn from '../assets/carolyn.png'
 import fabienne from '../assets/fabienne.png'
 import greg from '../assets/greg.png'
 import zara from '../assets/zara.png'
@@ -9,7 +8,6 @@ const TeamSection: React.FC = () => {
   const [expandedBios, setExpandedBios] = useState({
     greg: false,
     fabienne: false,
-    carolyn: false,
     zara: false,
   })
 
@@ -24,8 +22,6 @@ const TeamSection: React.FC = () => {
     greg: 'Greg Boyd is a creative tech entrepreneur and visionary leader focused on helping companies enhance their brand and drive revenue through visually compelling storytelling. With a background in management and technology consulting, he has worked with top firms like KPMG, IBM, and Travelers Insurance while launching multiple startups. Greg is also passionate about mentorship and talent development, founding Mango Mentors to connect emerging tech talent with industry leaders. His mission is to blend innovation, creativity, and purpose to transform how businesses engage with their audiences.',
     fabienne:
       "Fabienne Heymans is a visionary Creative Director with a distinguished career in beauty and fashion. As an international model and actor, she represented top brands like Maybelline, Revlon, and L'Oréal, collaborating with leading creatives worldwide. Her expertise in aesthetics, branding, and storytelling—combined with a passion for conscious living—allows her to merge art, technology, and purpose. As Creative Director at Raver, she leads the artistic vision, using AI-powered tools to craft visually striking, emotionally resonant content that inspires and connects deeply with audiences.",
-    carolyn:
-      'Carolyn Neff is a multifaceted talent who excels as an actress, producer, and entrepreneur. As an accomplished actress, she brings captivating performances to the screen. She demonstrates a keen eye for storytelling and project development as a producer. Beyond entertainment, Carolyn is a driven entrepreneur, showcasing business acumen and a passion for innovation. Her diverse skills and commitment to excellence make her a dynamic force in various fields.',
     zara: "Zara is the Lead Creative Strategist at RAVER, spearheading a dynamic team of AI creatives who continually push the envelope of digital art. Her leadership drives the creation of immersive visuals that capture the client's energy and spirit, blending technology and creativity in innovative ways. Under her guidance, the team develops bold, futuristic concepts that not only redefine visual boundaries but also leave clients continually amazed and inspired by their imaginative designs.",
   }
 
@@ -33,8 +29,6 @@ const TeamSection: React.FC = () => {
     greg: 'Greg Boyd is a creative tech entrepreneur and visionary leader focused on helping companies enhance their brand and drive revenue through visually compelling storytelling. With a background in management and technology...',
     fabienne:
       "Fabienne Heymans is a visionary Creative Director with a distinguished career in beauty and fashion. As an international model and actor, she represented top brands like Maybelline, Revlon, and L'Oréal, collaborating with leading creatives...",
-    carolyn:
-      'Carolyn Neff is a multifaceted talent who excels as an actress, producer, and entrepreneur. As an accomplished actress, she brings captivating performances to the screen. She demonstrates a keen eye for storytelling and project development...',
     zara: "Zara is the Lead Creative Strategist at RAVER, spearheading a dynamic team of AI creatives who continually push the envelope of digital art. Her leadership drives the creation of immersive visuals that capture the client's energy and spirit, blending....",
   }
 
@@ -138,43 +132,6 @@ const TeamSection: React.FC = () => {
                   className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 underline'
                 >
                   {expandedBios.fabienne ? 'See Less' : 'See More'}
-                </button>
-              </div>
-            </div>
-
-            <div className='flex flex-col items-start gap-4 w-full'>
-              <div className='relative w-full aspect-square rounded-md overflow-hidden bg-[#272a34]'>
-                <img
-                  src={carolyn}
-                  alt='Carolyn Neff'
-                  className='w-full h-full object-cover'
-                />
-              </div>
-
-              <div className='flex flex-col items-start gap-4 w-full'>
-                <div className='flex flex-col items-start gap-3 sm:gap-4 w-full'>
-                  <div className='flex flex-col items-start w-full'>
-                    <h3 className='text-[#272a34] font-cormorant font-bold text-xl sm:text-2xl leading-8'>
-                      Carolyn Neff
-                    </h3>
-
-                    <p className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 sm:leading-8'>
-                      Chief Director of Story & Content
-                    </p>
-                  </div>
-
-                  <p className='text-[#272a34] font-poppins font-light text-sm sm:text-base leading-6 sm:leading-8'>
-                    {expandedBios.carolyn
-                      ? fullBios.carolyn
-                      : shortBios.carolyn}
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => toggleBio('carolyn')}
-                  className='text-[#272a34] font-poppins text-sm sm:text-base leading-6 underline'
-                >
-                  {expandedBios.carolyn ? 'See Less' : 'See More'}
                 </button>
               </div>
             </div>
