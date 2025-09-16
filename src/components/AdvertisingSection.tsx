@@ -26,7 +26,7 @@ const AdvertisingSection = () => {
           </p>
         </div>
       
-
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 w-full'>
           <div className='relative w-full h-[240px] sm:h-[300px] md:h-[360px] sm:col-span-2 lg:col-span-6 rounded-[3px] overflow-hidden mt-4 sm:mt-6 lg:mt-0 lg:max-w-[640px]'>
             <div className='absolute inset-0 flex items-center justify-center z-10 pointer-events-none'>
               <div className='w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] flex items-center justify-center'></div>
