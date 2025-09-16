@@ -164,7 +164,7 @@ const HeroSection = () => {
               ref={titleRef}
               className='font-bold text-[#C3969A] text-3xl sm:text-4xl md:text-3xl leading-tight mb-6'
             >
-              Where Beauty Knows <br /> No Limits
+              WHERE BEAUTY KNOWS <br /> NO LIMITS
             </h1>
 
             <p
