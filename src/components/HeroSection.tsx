@@ -164,15 +164,16 @@ const HeroSection = () => {
               ref={titleRef}
               className='font-bold text-[#C3969A] text-3xl sm:text-4xl md:text-3xl leading-tight mb-6'
             >
-              BRINGING HEART <br /> TO AI-POWERED STORYTELLING
+              Where Beauty Knows <br /> No Limits
             </h1>
 
             <p
               ref={descriptionRef}
               className='text-[#C3969A] text-lg font-light mb-6'
             >
-              At Raver, we believe that stories inspire action, evoke emotion,
-              and build meaningful connections.
+              Experience boundless possibilities for 
+              beauty brands, retailers, and salons—grow faster, 
+              sell more, and build lasting customer connections.
             </p>
 
             <div ref={buttonRef}>
