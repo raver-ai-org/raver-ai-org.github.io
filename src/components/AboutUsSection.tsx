@@ -1,8 +1,8 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
-import candyGirl from '../assets/candy-girl.webm'
-import slayyy from '../assets/slayyy.webm'
-import whoOwnsUs from '../assets/who-owns-us.webm'
+import candyGirl from '../assets/vid2-candy_girl.webm'
+import slayyy from '../assets/vid1-Tomford.webm'
+import whoOwnsUs from '../assets/vid3-Kiehls.webm'
 import VideoPlayer from './VideoPlayer'
 
 const AboutUsSection = () => {
@@ -12,7 +12,7 @@ const AboutUsSection = () => {
     {
       src: slayyy,
       caption:
-        'Created for Slayyy, this video showcases the beauty of transformation with luxurious hair extensions and high-fashion aesthetics.',
+        'Created for Tomford perfume.',
     },
     {
       src: candyGirl,
@@ -22,7 +22,7 @@ const AboutUsSection = () => {
     {
       src: whoOwnsUs,
       caption:
-        'Created for Rainfall, ‘Who Owns Us’ visually embodies the organization’s mission, merging high-tech innovation with powerful storytelling.',
+        'Created for Kiehls.',
     },
   ]
 
