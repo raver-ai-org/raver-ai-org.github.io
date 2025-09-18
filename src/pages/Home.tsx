@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import showcaseVideo from '../assets/zara.webm'
+import showcaseVideo from '../assets/vid4-YSL_perfume.webm'
 import AboutUsSection from '../components/AboutUsSection'
 import AdvertisingSection from '../components/AdvertisingSection'
 import ElevateBrandSection from '../components/ElevateBrandSection'
