@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import elevateBrand1 from '../assets/elevate-brand-1.png'
-import elevateBrand2 from '../assets/elevate-brand-2.png'
-import elevateBrand3 from '../assets/elevate-brand-3.png'
+import elevateBrand1 from '../assets/elevate-brand-1.webp'
+import elevateBrand2 from '../assets/elevate-brand-2.webp'
+import elevateBrand3 from '../assets/elevate-brand-3.webp'
 import ConnectWithUs from './ConnectWithUs'
 
 const ElevateBrandSection: React.FC = () => {
