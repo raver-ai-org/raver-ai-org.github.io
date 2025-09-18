@@ -1,4 +1,4 @@
-import adVideo from '../assets/journey-of-ads.webm'
+import adVideo from '../assets/vid0-DiorLipstick.webm'
 import VideoPlayer from './VideoPlayer'
 
 const AdvertisingSection = () => {
