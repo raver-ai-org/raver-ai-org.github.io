@@ -45,7 +45,7 @@ const AdvertisingSection = () => {
                 />
 
                 <div className='mt-4 text-[#8E6F77] font-poppins text-base font-normal leading-8'>
-                  The journey of advertising through the lens of Raver.
+                  Classic beauty and elegance with RAVER driving your brand forward.
                 </div>
               </div>
             </div>
